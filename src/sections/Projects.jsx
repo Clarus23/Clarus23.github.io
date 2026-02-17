@@ -19,18 +19,18 @@ const Projects = () => {
               <Period>{project.period}</Period>
               <Description>{project.description}</Description>
               <TechStack>
-                {project.stack.map((tech, i) => (
+                {project.tags.map((tech, i) => (
                   <Tag key={i}>{tech}</Tag>
                 ))}
               </TechStack>
               <Links>
-                {project.links.github && (
-                  <LinkButton href={project.links.github} target="_blank" rel="noopener noreferrer">
+                {project.github && (
+                  <LinkButton href={project.github} target="_blank" rel="noopener noreferrer">
                     <FaGithub /> GitHub
                   </LinkButton>
                 )}
-                {project.links.demo && (
-                  <LinkButton href={project.links.demo} target="_blank" rel="noopener noreferrer">
+                {project.demo && (
+                  <LinkButton href={project.demo} target="_blank" rel="noopener noreferrer">
                     <FaExternalLinkAlt /> Live Demo
                   </LinkButton>
                 )}

@@ -12,17 +12,6 @@ export const timeline = [
         ]
     },
     {
-        id: 2,
-        title: "SsaveryTime",
-        type: "Project",
-        role: "Full-Stack Developer",
-        period: "2025.11 ~ 12",
-        description: [
-            "SSAFY 통합 익명 커뮤니티 개발",
-            "실시간 채팅 및 게시판 기능 구현"
-        ]
-    },
-    {
         id: 3,
         title: "삼성 청년 SW 아카데미 (SSAFY) 14기",
         type: "Education",

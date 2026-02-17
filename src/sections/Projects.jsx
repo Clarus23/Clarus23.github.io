@@ -44,7 +44,7 @@ const Projects = () => {
 };
 
 const Section = styled.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 1000px;
   margin: 0 auto;
 `;
@@ -59,7 +59,7 @@ const SectionTitle = styled.h2`
 const Grid = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
 `;
 
 const ProjectCard = styled.div`
@@ -69,8 +69,8 @@ const ProjectCard = styled.div`
   background-color: ${({ theme }) => theme.colors.bgLight};
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-  padding: 2rem;
+  box-shadow: 0 5px 15px -10px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;

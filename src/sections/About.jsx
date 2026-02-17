@@ -60,7 +60,7 @@ const About = () => {
 };
 
 const Section = styled.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 1000px;
   margin: 0 auto;
 `;
@@ -73,8 +73,8 @@ const SectionTitle = styled.h2`
 `;
 
 const SubSectionTitle = styled.h3`
-  font-size: 1.8rem;
-  margin: 4rem 0 2rem;
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
   color: ${({ theme }) => theme.colors.textPrimary};
   border-left: 5px solid ${({ theme }) => theme.colors.primary};
   padding-left: 1rem;
@@ -83,8 +83,8 @@ const SubSectionTitle = styled.h3`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 4rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
@@ -151,8 +151,8 @@ const EducationList = styled.div`
 
 const EducationItem = styled.div`
   display: flex;
-  gap: 2rem;
-  padding-bottom: 2rem;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border || '#eee'};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {

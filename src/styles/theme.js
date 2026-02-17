@@ -1,13 +1,15 @@
 export const theme = {
     colors: {
-        primary: "#0a192f",
-        secondary: "#64ffda",
-        textPrimary: "#ccd6f6",
-        textSecondary: "#8892b0",
-        bg: "#0a192f",
-        bgLight: "#112240",
-        white: "#e6f1ff",
-        transition: "all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)"
+        primary: "#0056b3",      // Professional Blue
+        secondary: "#17a2b8",    // Cyan/Teal accent
+        textPrimary: "#212529",  // Dark Gray (almost black)
+        textSecondary: "#495057",// Gray
+        bg: "#ffffff",           // White
+        bgLight: "#f8f9fa",      // Very light gray for cards/sections
+        white: "#ffffff",
+        border: "#dee2e6",       // Light border color
+        backgroundAlt: "#f8f9fa", // Alternative background for cards
+        transition: "all 0.25s ease-in-out"
     },
     fonts: {
         main: "'Inter', sans-serif",

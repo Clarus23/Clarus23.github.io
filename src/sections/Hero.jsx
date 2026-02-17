@@ -44,12 +44,12 @@ const Hero = () => {
 };
 
 const Section = styled.section`
-  min-height: 100vh;
+  padding: 60px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0;
+  min-height: auto; /* Removed 100vh */
 `;
 
 const Content = styled.div`
@@ -64,20 +64,20 @@ const Intro = styled.p`
 `;
 
 const Title = styled.h1`
-  font-size: clamp(40px, 8vw, 80px);
+  font-size: clamp(30px, 5vw, 60px);
   font-weight: 700;
   color: ${({ theme }) => theme.colors.textPrimary};
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 const Subtitle = styled.div`
-  font-size: clamp(30px, 6vw, 60px);
+  font-size: clamp(20px, 4vw, 40px);
   font-weight: 700;
   color: ${({ theme }) => theme.colors.textSecondary};
   line-height: 1.1;
-  margin-bottom: 2rem;
-  height: 80px; /* Prevent layout shift */
+  margin-bottom: 1rem;
+  height: 60px; /* Reduced height */
   display: flex;
   align-items: center;
 

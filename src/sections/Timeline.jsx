@@ -3,32 +3,32 @@ import styled from 'styled-components';
 import { timeline } from '../data/timeline';
 
 const Timeline = () => {
-    return (
-        <Section id="timeline">
-            <SectionTitle>Timeline</SectionTitle>
-            <TimelineContainer>
-                {timeline.map((item, index) => (
-                    <TimelineItem key={item.id}>
-                        <TimelineContent>
-                            <Date>{item.period}</Date>
-                            <TypeLabel type={item.type}>{item.type}</TypeLabel>
-                            <Title>{item.title}</Title>
-                            <Role>{item.role}</Role>
-                            <DescList>
-                                {item.description.map((desc, i) => (
-                                    <li key={i}>{desc}</li>
-                                ))}
-                            </DescList>
-                        </TimelineContent>
-                    </TimelineItem>
+  return (
+    <Section id="timeline">
+      <SectionTitle>Timeline</SectionTitle>
+      <TimelineContainer>
+        {timeline.map((item, index) => (
+          <TimelineItem key={item.id}>
+            <TimelineContent>
+              <Date>{item.period}</Date>
+              <TypeLabel type={item.type}>{item.type}</TypeLabel>
+              <Title>{item.title}</Title>
+              <Role>{item.role}</Role>
+              <DescList>
+                {item.description.map((desc, i) => (
+                  <li key={i}>{desc}</li>
                 ))}
-            </TimelineContainer>
-        </Section>
-    );
+              </DescList>
+            </TimelineContent>
+          </TimelineItem>
+        ))}
+      </TimelineContainer>
+    </Section>
+  );
 };
 
 const Section = styled.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 800px;
   margin: 0 auto;
 `;
@@ -57,7 +57,7 @@ const TimelineContainer = styled.div`
 
 const TimelineItem = styled.div`
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 
   &::before {
     content: '';
@@ -93,11 +93,11 @@ const TypeLabel = styled.span`
   font-weight: bold;
   width: fit-content;
   background: ${({ type, theme }) =>
-        type === 'Project' ? theme.colors.primary + '20' :
-            type === 'Education' ? theme.colors.secondary + '20' : '#f0f0f0'};
+    type === 'Project' ? theme.colors.primary + '20' :
+      type === 'Education' ? theme.colors.secondary + '20' : '#f0f0f0'};
   color: ${({ type, theme }) =>
-        type === 'Project' ? theme.colors.primary :
-            type === 'Education' ? theme.colors.secondary : '#666'};
+    type === 'Project' ? theme.colors.primary :
+      type === 'Education' ? theme.colors.secondary : '#666'};
 `;
 
 const Title = styled.h3`

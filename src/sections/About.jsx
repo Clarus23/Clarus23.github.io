@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaUser, FaCalendar, FaMapMarkerAlt, FaPhone, FaEnvelope, FaGraduationCap } from 'react-icons/fa';
+import { education } from '../data/education';
 
 const About = () => {
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
-            alert(`${text} 복사되었습니다!`); // Simple alert for now, can be upgraded to Toast
+            alert(`${text} 복사되었습니다!`);
         });
     };
 
@@ -21,6 +22,14 @@ const About = () => {
     return (
         <Section id="about">
             <SectionTitle>About Me</SectionTitle>
+            <Bio>
+                <p>
+                    <b>"새로운 기술에 도전하는 것을 두려워하지 않는 개발자입니다."</b><br /><br />
+                    웹 개발의 매력에 빠져 다양한 프로젝트를 경험하며 성장해왔습니다.
+                    사용자 경험을 최우선으로 생각하며, 유지보수하기 좋은 코드를 작성하기 위해 항상 고민합니다.
+                </p>
+            </Bio>
+
             <Grid>
                 {infoList.map((info, index) => (
                     <InfoCard key={index} onClick={() => info.isCopyable && copyToClipboard(info.value)} isCopyable={info.isCopyable}>
@@ -32,13 +41,20 @@ const About = () => {
                     </InfoCard>
                 ))}
             </Grid>
-            <Bio>
-                <p>
-                    <b>"새로운 기술에 도전하는 것을 두려워하지 않는 개발자입니다."</b><br /><br />
-                    웹 개발의 매력에 빠져 다양한 프로젝트를 경험하며 성장해왔습니다.
-                    사용자 경험을 최우선으로 생각하며, 유지보수하기 좋은 코드를 작성하기 위해 항상 고민합니다.
-                </p>
-            </Bio>
+
+            <SubSectionTitle>Education</SubSectionTitle>
+            <EducationList>
+                {education.map((edu) => (
+                    <EducationItem key={edu.id}>
+                        <EduPeriod>{edu.period}</EduPeriod>
+                        <EduContent>
+                            <EduSchool>{edu.school}</EduSchool>
+                            <EduMajor>{edu.major}</EduMajor>
+                            <EduDesc>{edu.description}</EduDesc>
+                        </EduContent>
+                    </EducationItem>
+                ))}
+            </EducationList>
         </Section>
     );
 };
@@ -54,6 +70,14 @@ const SectionTitle = styled.h2`
   margin-bottom: 3rem;
   color: ${({ theme }) => theme.colors.textPrimary};
   text-align: center;
+`;
+
+const SubSectionTitle = styled.h3`
+  font-size: 1.8rem;
+  margin: 4rem 0 2rem;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  border-left: 5px solid ${({ theme }) => theme.colors.primary};
+  padding-left: 1rem;
 `;
 
 const Grid = styled.div`
@@ -78,15 +102,18 @@ const InfoCard = styled.div`
   padding: 1rem;
   cursor: ${({ isCopyable }) => isCopyable ? 'pointer' : 'default'};
   transition: transform 0.2s;
+  background: ${({ theme }) => theme.colors.backgroundAlt}; /* Added background for better card feel */
+  border-radius: 8px;
 
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
 `;
 
 const IconWrapper = styled.div`
   font-size: 2rem;
-  color: ${({ theme }) => theme.colors.textPrimary};
+  color: ${({ theme }) => theme.colors.primary}; /* Changed to primary color */
 `;
 
 const InfoContext = styled.div`
@@ -111,8 +138,54 @@ const Bio = styled.div`
   line-height: 1.8;
   text-align: center;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 4rem; /* Added margin bottom */
   font-size: 1.1rem;
+`;
+
+/* Education Styles */
+const EducationList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
+
+const EducationItem = styled.div`
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border || '#eee'};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+`;
+
+const EduPeriod = styled.div`
+  min-width: 150px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.textSecondary};
+`;
+
+const EduContent = styled.div`
+  flex: 1;
+`;
+
+const EduSchool = styled.h4`
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  margin-bottom: 0.5rem;
+`;
+
+const EduMajor = styled.div`
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  margin-bottom: 0.5rem;
+`;
+
+const EduDesc = styled.p`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: 0.95rem;
 `;
 
 export default About;

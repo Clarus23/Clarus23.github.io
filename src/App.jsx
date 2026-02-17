@@ -3,9 +3,9 @@ import Layout from './components/layout/Layout';
 import Hero from './sections/Hero';
 import About from './sections/About';
 import Skills from './sections/Skills';
-import Archiving from './sections/Archiving';
+import Awards from './sections/Awards';
 import Projects from './sections/Projects';
-import Career from './sections/Career';
+import Timeline from './sections/Timeline';
 import Contact from './sections/Contact';
 
 function App() {
@@ -14,9 +14,9 @@ function App() {
       <Hero />
       <About />
       <Skills />
-      <Archiving />
+      <Awards />
       <Projects />
-      <Career />
+      <Timeline />
       <Contact />
     </Layout>
   );

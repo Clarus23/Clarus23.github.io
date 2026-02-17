@@ -28,12 +28,12 @@ const Header = () => {
         <NavList isOpen={isOpen}>
           <NavItem><NavLink href="#about" onClick={toggleMenu}>About</NavLink></NavItem>
           <NavItem><NavLink href="#skills" onClick={toggleMenu}>Skills</NavLink></NavItem>
-          <NavItem><NavLink href="#archiving" onClick={toggleMenu}>Archiving</NavLink></NavItem>
+          <NavItem><NavLink href="#awards" onClick={toggleMenu}>Awards</NavLink></NavItem>
           <NavItem><NavLink href="#projects" onClick={toggleMenu}>Projects</NavLink></NavItem>
-          <NavItem><NavLink href="#career" onClick={toggleMenu}>Career</NavLink></NavItem>
+          <NavItem><NavLink href="#timeline" onClick={toggleMenu}>Timeline</NavLink></NavItem>
         </NavList>
       </Nav>
-    </StyledHeader>
+    </StyledHeader >
   );
 };
 

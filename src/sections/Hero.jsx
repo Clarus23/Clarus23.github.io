@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import Button from '../components/ui/Button';
+import { FaGithub, FaEnvelope, FaPenNib, FaFileAlt } from 'react-icons/fa';
 
 const Hero = () => {
   return (
@@ -22,7 +23,21 @@ const Hero = () => {
           사용자에게 가치를 전달하는 백엔드 개발자입니다.<br />
           안정적이고 확장 가능한 시스템을 구축하는 것에 열정을 가지고 있습니다.
         </Description>
-        <Button href="#about" variant="primary">더 알아보기</Button>
+        <ButtonGroup>
+          <Button href="#about" variant="primary">더 알아보기</Button>
+          <IconButton href="https://github.com/Clarus23" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <FaGithub />
+          </IconButton>
+          <IconButton href="mailto:email@example.com" aria-label="Email">
+            <FaEnvelope />
+          </IconButton>
+          <IconButton href="https://clarus23.tistory.com" target="_blank" rel="noopener noreferrer" aria-label="Blog">
+            <FaPenNib />
+          </IconButton>
+          <IconButton href="#" target="_blank" rel="noopener noreferrer" aria-label="Resume">
+            <FaFileAlt />
+          </IconButton>
+        </ButtonGroup>
       </Content>
     </Section>
   );
@@ -77,6 +92,23 @@ const Description = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
   margin-bottom: 3rem;
   line-height: 1.6;
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+`;
+
+const IconButton = styled.a`
+  font-size: 1.5rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  transition: color 0.2s, transform 0.2s;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+    transform: translateY(-3px);
+  }
 `;
 
 export default Hero;

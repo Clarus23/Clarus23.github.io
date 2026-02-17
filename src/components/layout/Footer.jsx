@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaGithub, FaLinkedin, FaInstagram, FaArrowUp } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaPenNib, FaArrowUp } from 'react-icons/fa';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -11,11 +11,11 @@ const Footer = () => {
     <StyledFooter>
       <SocialLinks>
         <SocialIcon href="https://github.com/Clarus23" target="_blank" rel="noopener noreferrer"><FaGithub /></SocialIcon>
-        <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><FaLinkedin /></SocialIcon>
-        <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><FaInstagram /></SocialIcon>
+        <SocialIcon href="mailto:dnjs3023@gmail.com"><FaEnvelope /></SocialIcon>
+        <SocialIcon href="https://clarus23.tistory.com" target="_blank" rel="noopener noreferrer"><FaPenNib /></SocialIcon>
       </SocialLinks>
       <Copyright>
-        &copy; {new Date().getFullYear()} Clarus23. All rights reserved.
+        &copy; {new Date().getFullYear()} Hyewon Jung. All rights reserved.
       </Copyright>
       <ScrollToTop onClick={scrollToTop}>
         <FaArrowUp />

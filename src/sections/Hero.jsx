@@ -9,7 +9,7 @@ const Hero = () => {
     <Section id="hero">
       <Content>
         <Intro>안녕하세요, 저는</Intro>
-        <Title>Clarus23입니다.</Title>
+        <Title>Hyewon Jung입니다.</Title>
         <Subtitle>
           <Typewriter
             options={{
@@ -28,7 +28,7 @@ const Hero = () => {
           <IconButton href="https://github.com/Clarus23" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <FaGithub />
           </IconButton>
-          <IconButton href="mailto:email@example.com" aria-label="Email">
+          <IconButton href="mailto:dnjs3023@gmail.com" aria-label="Email">
             <FaEnvelope />
           </IconButton>
           <IconButton href="https://clarus23.tistory.com" target="_blank" rel="noopener noreferrer" aria-label="Blog">

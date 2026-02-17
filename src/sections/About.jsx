@@ -11,12 +11,12 @@ const About = () => {
     };
 
     const infoList = [
-        { icon: <FaUser />, label: '이름', value: '홍길동' },
-        { icon: <FaCalendar />, label: '생년월일', value: '199X.XX.XX' },
-        { icon: <FaMapMarkerAlt />, label: '주소', value: '서울시 강남구' },
-        { icon: <FaPhone />, label: '연락처', value: '010-1234-5678' },
-        { icon: <FaEnvelope />, label: '이메일', value: 'email@example.com', isCopyable: true },
-        { icon: <FaGraduationCap />, label: '학력', value: 'OO대학교 컴퓨터공학부' },
+        { icon: <FaUser />, label: '이름', value: '정혜원' },
+        { icon: <FaCalendar />, label: '생년월일', value: '1999.03.23' },
+        { icon: <FaMapMarkerAlt />, label: '주소', value: '광주광역시 광산구' },
+        { icon: <FaPhone />, label: '연락처', value: '010-4372-3023' },
+        { icon: <FaEnvelope />, label: '이메일', value: 'dnjs3023@gmail.com', isCopyable: true },
+        { icon: <FaGraduationCap />, label: '학력', value: '전북대학교 컴퓨터공학부' },
     ];
 
     return (

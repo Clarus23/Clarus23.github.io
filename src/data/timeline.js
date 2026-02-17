@@ -8,7 +8,7 @@ export const timeline = [
         description: [
             "기프티콘 관리 및 판매 서비스 개발",
             "MSA 아키텍처 설계 및 구축",
-            "CI/CD 파이프라인 구축"
+            "Spring Boot, React Native, Redis GEO 활용"
         ]
     },
     {
@@ -19,50 +19,49 @@ export const timeline = [
         period: "2025.11 ~ 12",
         description: [
             "SSAFY 통합 익명 커뮤니티 개발",
-            "실시간 채팅 기능 구현 (WebSocket)",
-            "게시판 CRUD 및 댓글 기능"
+            "실시간 채팅 및 게시판 기능 구현"
         ]
     },
     {
         id: 3,
-        title: "부산대학교 졸업",
-        type: "Education",
-        role: "정보컴퓨터공학과",
-        period: "2025.08",
-        description: [
-            "컴퓨터 공학 전공",
-            "학점 3.09/4.5"
-        ]
-    },
-    {
-        id: 4,
-        title: "SSAFY 14기",
+        title: "삼성 청년 SW 아카데미 (SSAFY) 14기",
         type: "Education",
         role: "Trainee",
         period: "2025.07 ~ Present",
         description: [
-            "알고리즘 및 웹/모바일 개발 교육",
-            "총 1600시간 집중 교육 이수"
+            "Java 전공 트랙",
+            "알고리즘 및 웹/모바일 개발 집중 교육"
         ]
     },
     {
-        id: 5,
+        id: 4,
         title: "정보처리기사 취득",
         type: "Certificate",
         role: "License",
         period: "2025.06",
         description: [
-            "한국산업인력공단 국가기술자격"
+            "한국산업인력공단"
         ]
     },
     {
-        id: 6,
+        id: 5,
         title: "SQLD 취득",
         type: "Certificate",
         role: "License",
         period: "2025.04",
         description: [
-            "SQL 개발자 자격증"
+            "한국데이터산업진흥원"
+        ]
+    },
+    {
+        id: 6,
+        title: "전북대학교 졸업",
+        type: "Education",
+        role: "Bachelor",
+        period: "2025.02",
+        description: [
+            "정보컴퓨터공학 전공",
+            "공학인증 심화과정 이수"
         ]
     }
 ];

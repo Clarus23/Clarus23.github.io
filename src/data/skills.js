@@ -1,24 +1,20 @@
 export const skills = {
-    frontend: [
-        { name: "React", level: "Advanced", icon: "" },
-        { name: "JavaScript (ES6+)", level: "Advanced", icon: "" },
-        { name: "HTML5 & CSS3", level: "Expert", icon: "" },
-        { name: "Styled-components", level: "Intermediate", icon: "" }
-    ],
     backend: [
-        { name: "Node.js", level: "Intermediate", icon: "" },
-        { name: "Express", level: "Intermediate", icon: "" },
-        { name: "Java", level: "Intermediate", icon: "" },
-        { name: "Spring Boot", level: "Basic", icon: "" }
+        { name: "Java", level: 90 },
+        { name: "Spring Boot", level: 85 },
+        { name: "JPA", level: 80 },
+        { name: "MySQL", level: 80 },
+        { name: "Redis", level: 75 }
     ],
-    devops: [
-        { name: "Git", level: "Advanced", icon: "" },
-        { name: "GitHub Actions", level: "Basic", icon: "" },
-        { name: "AWS", level: "Basic", icon: "" }
+    frontend: [
+        { name: "Vue.js", level: 80 },
+        { name: "JavaScript", level: 80 },
+        { name: "React", level: 70 }
     ],
-    communication: [
-        { name: "Slack", level: "", icon: "" },
-        { name: "Notion", level: "", icon: "" },
-        { name: "Discord", level: "", icon: "" }
+    tools: [
+        { name: "Git", level: 85 },
+        { name: "Docker", level: 75 },
+        { name: "AWS", level: 70 },
+        { name: "Jira", level: 80 }
     ]
 };

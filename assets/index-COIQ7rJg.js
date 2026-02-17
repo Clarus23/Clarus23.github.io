@@ -168,12 +168,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,my=F.a`
   ${F0}
 `,py=()=>N.jsx(vy,{id:"hero",children:N.jsxs(yy,{children:[N.jsx(gy,{children:"안녕하세요, 저는"}),N.jsx(by,{children:"Hyewon Jung입니다."}),N.jsx(Sy,{children:N.jsx(sy,{options:{strings:["Backend Developer","Problem Solver","Lifetime Learner"],autoStart:!0,loop:!0}})}),N.jsxs(xy,{children:["사용자에게 가치를 전달하는 백엔드 개발자입니다.",N.jsx("br",{}),"안정적이고 확장 가능한 시스템을 구축하는 것에 열정을 가지고 있습니다."]}),N.jsxs(_y,{children:[N.jsx(dy,{href:"#about",variant:"primary",children:"더 알아보기"}),N.jsx(Qi,{href:"https://github.com/Clarus23",target:"_blank",rel:"noopener noreferrer","aria-label":"GitHub",children:N.jsx(Ff,{})}),N.jsx(Qi,{href:"mailto:dnjs3023@gmail.com","aria-label":"Email",children:N.jsx(If,{})}),N.jsx(Qi,{href:"https://clarus23.tistory.com",target:"_blank",rel:"noopener noreferrer","aria-label":"Blog",children:N.jsx(W0,{})}),N.jsx(Qi,{href:"#",target:"_blank",rel:"noopener noreferrer","aria-label":"Resume",children:N.jsx(Lv,{})})]})]})}),vy=F.section`
-  min-height: 100vh;
+  padding: 60px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0;
+  min-height: auto; /* Removed 100vh */
 `,yy=F.div`
   max-width: 1000px;
 `,gy=F.p`
@@ -182,18 +182,18 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 `,by=F.h1`
-  font-size: clamp(40px, 8vw, 80px);
+  font-size: clamp(30px, 5vw, 60px);
   font-weight: 700;
   color: ${({theme:u})=>u.colors.textPrimary};
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 `,Sy=F.div`
-  font-size: clamp(30px, 6vw, 60px);
+  font-size: clamp(20px, 4vw, 40px);
   font-weight: 700;
   color: ${({theme:u})=>u.colors.textSecondary};
   line-height: 1.1;
-  margin-bottom: 2rem;
-  height: 80px; /* Prevent layout shift */
+  margin-bottom: 1rem;
+  height: 60px; /* Reduced height */
   display: flex;
   align-items: center;
 
@@ -220,7 +220,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     transform: translateY(-3px);
   }
 `,Ey=[{id:1,school:"Samsung Software Academy for Youth (SSAFY)",period:"2025.07 - Present",major:"Java 전공 트랙",description:"알고리즘 및 웹 개발 심화 과정 이수"},{id:2,school:"전북대학교",period:"2018.03 - 2025.02",major:"정보컴퓨터공학",description:"컴퓨터 공학 전반 학습, 정보 보안 및 네트워크 중점 학습"},{id:3,school:"창평고등학교",period:"2015.03 - 2018.02",major:"이과",description:"고등학교 과정 이수"}],zy=()=>{const u=d=>{navigator.clipboard.writeText(d).then(()=>{alert(`${d} 복사되었습니다!`)})},f=[{icon:N.jsx(Jv,{}),label:"이름",value:"정혜원"},{icon:N.jsx(qv,{}),label:"생년월일",value:"1999.03.23"},{icon:N.jsx(Xv,{}),label:"주소",value:"광주광역시 광산구"},{icon:N.jsx(Zv,{}),label:"연락처",value:"010-4372-3023"},{icon:N.jsx(If,{}),label:"이메일",value:"dnjs3023@gmail.com",isCopyable:!0},{icon:N.jsx(Qv,{}),label:"학력",value:"전북대학교 컴퓨터공학부"}];return N.jsxs(Ay,{id:"about",children:[N.jsx(Ty,{children:"About Me"}),N.jsx(Uy,{children:N.jsxs("p",{children:[N.jsx("b",{children:'"새로운 기술에 도전하는 것을 두려워하지 않는 개발자입니다."'}),N.jsx("br",{}),N.jsx("br",{}),"웹 개발의 매력에 빠져 다양한 프로젝트를 경험하며 성장해왔습니다. 사용자 경험을 최우선으로 생각하며, 유지보수하기 좋은 코드를 작성하기 위해 항상 고민합니다."]})}),N.jsx(jy,{children:f.map((d,o)=>N.jsxs(My,{onClick:()=>d.isCopyable&&u(d.value),isCopyable:d.isCopyable,children:[N.jsx(Cy,{children:d.icon}),N.jsxs(Dy,{children:[N.jsx(Ny,{children:d.label}),N.jsx(Ry,{children:d.value})]})]},o))}),N.jsx(Oy,{children:"Education"}),N.jsx(Hy,{children:Ey.map(d=>N.jsxs(By,{children:[N.jsx(wy,{children:d.period}),N.jsxs(Yy,{children:[N.jsx(qy,{children:d.school}),N.jsx(Gy,{children:d.major}),N.jsx(Ly,{children:d.description})]})]},d.id))})]})},Ay=F.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 1000px;
   margin: 0 auto;
 `,Ty=F.h2`
@@ -229,16 +229,16 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   color: ${({theme:u})=>u.colors.textPrimary};
   text-align: center;
 `,Oy=F.h3`
-  font-size: 1.8rem;
-  margin: 4rem 0 2rem;
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
   color: ${({theme:u})=>u.colors.textPrimary};
   border-left: 5px solid ${({theme:u})=>u.colors.primary};
   padding-left: 1rem;
 `,jy=F.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 4rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 
   @media (max-width: ${({theme:u})=>u.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
@@ -288,8 +288,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   gap: 2rem;
 `,By=F.div`
   display: flex;
-  gap: 2rem;
-  padding-bottom: 2rem;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid ${({theme:u})=>u.colors.border||"#eee"};
 
   @media (max-width: ${({theme:u})=>u.breakpoints.mobile}) {
@@ -444,7 +444,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   color: ${({theme:u})=>u.colors.textSecondary};
   margin-top: 0.5rem;
 `,o2=[{id:1,title:"CONY",period:"2026.01 - 2026.02",description:"위치 기반 기프티콘 관리 및 판매 플랫폼입니다. 사용자의 위치를 기반으로 주변 매장에서 사용할 수 있는 기프티콘을 자동으로 알려주고, 유효기간 임박 기프티콘을 관리할 수 있습니다.",tags:["Java","Spring Boot","JPA","MySQL","Redis","Docker","AWS","React Native"],github:"",demo:"",details:["Redis GEO 기반 공간 인덱싱 시스템 구축 (반경 검색 속도 73% 개선)","Redis Pipeline을 활용한 대용량 데이터 조회 최적화 (응답 속도 88% 개선)","Android Native Module 개발을 통한 백그라운드 지오펜싱 및 위젯 구현","Greedy Clustering 알고리즘으로 안드로이드 OS 지오펜스 개수 제약 극복","Firebase FCM 기반 푸시 알림 및 알림 히스토리 시스템 구축","MSA 아키텍처 설계 및 Jenkins/Docker 기반 CI/CD 파이프라인 구축"]},{id:2,title:"Portfolio Website",period:"2024.01 - 2024.02",description:"React와 Styled-components를 활용하여 제작한 개인 포트폴리오 웹사이트입니다. 반응형 디자인을 적용하여 다양한 디바이스에서 최적화된 화면을 제공합니다.",tags:["React","Styled-components","Vite","GitHub Pages"],github:"https://github.com/Clarus23/Clarus23.github.io",demo:"https://Clarus23.github.io",details:["React & Vite 기반의 SPA(Single Page Application) 구조 설계","Styled-components를 활용한 컴포넌트 단위 스타일링 및 테마 적용","Typewriter 효과 및 스크롤 애니메이션 등 인터랙티브 요소 구현","GitHub Actions를 활용한 자동 배포 파이프라인 구축 (예정)","다크 모드 지원 및 반응형 레이아웃 구현"]}],s2=()=>N.jsxs(d2,{id:"projects",children:[N.jsx(h2,{children:"Projects"}),N.jsx(m2,{children:o2.map(u=>N.jsxs(p2,{children:[N.jsx(v2,{children:N.jsx(y2,{children:u.title})}),N.jsxs(g2,{children:[N.jsx(b2,{children:u.title}),N.jsx(S2,{children:u.period}),N.jsx(x2,{children:u.description}),N.jsx(_2,{children:u.tags.map((f,d)=>N.jsx(E2,{children:f},d))}),N.jsxs(z2,{children:[u.github&&N.jsxs(E0,{href:u.github,target:"_blank",rel:"noopener noreferrer",children:[N.jsx(Ff,{})," GitHub"]}),u.demo&&N.jsxs(E0,{href:u.demo,target:"_blank",rel:"noopener noreferrer",children:[N.jsx(Gv,{})," Live Demo"]})]})]})]},u.id))})]}),d2=F.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 1000px;
   margin: 0 auto;
 `,h2=F.h2`
@@ -455,7 +455,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,m2=F.div`
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
 `,p2=F.div`
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -463,8 +463,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   background-color: ${({theme:u})=>u.colors.bgLight};
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-  padding: 2rem;
+  box-shadow: 0 5px 15px -10px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
 
   @media (max-width: ${({theme:u})=>u.breakpoints.mobile}) {
     grid-template-columns: 1fr;
@@ -526,8 +526,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   &:hover {
     color: ${({theme:u})=>u.colors.secondary};
   }
-`,A2=[{id:1,title:"CONY Service",type:"Project",role:"Team Leader, Backend & Infra",period:"2026.01 ~ 02",description:["기프티콘 관리 및 판매 서비스 개발","MSA 아키텍처 설계 및 구축","Spring Boot, React Native, Redis GEO 활용"]},{id:2,title:"SsaveryTime",type:"Project",role:"Full-Stack Developer",period:"2025.11 ~ 12",description:["SSAFY 통합 익명 커뮤니티 개발","실시간 채팅 및 게시판 기능 구현"]},{id:3,title:"삼성 청년 SW 아카데미 (SSAFY) 14기",type:"Education",role:"Trainee",period:"2025.07 ~ Present",description:["Java 전공 트랙","알고리즘 및 웹/모바일 개발 집중 교육"]},{id:4,title:"정보처리기사 취득",type:"Certificate",role:"License",period:"2025.06",description:["한국산업인력공단"]},{id:5,title:"SQLD 취득",type:"Certificate",role:"License",period:"2025.04",description:["한국데이터산업진흥원"]},{id:6,title:"전북대학교 졸업",type:"Education",role:"Bachelor",period:"2025.02",description:["정보컴퓨터공학 전공","공학인증 심화과정 이수"]}],T2=()=>N.jsxs(O2,{id:"timeline",children:[N.jsx(j2,{children:"Timeline"}),N.jsx(M2,{children:A2.map((u,f)=>N.jsx(C2,{children:N.jsxs(D2,{children:[N.jsx(N2,{children:u.period}),N.jsx(R2,{type:u.type,children:u.type}),N.jsx(U2,{children:u.title}),N.jsx(H2,{children:u.role}),N.jsx(B2,{children:u.description.map((d,o)=>N.jsx("li",{children:d},o))})]})},u.id))})]}),O2=F.section`
-  padding: 100px 0;
+`,A2=[{id:1,title:"CONY Service",type:"Project",role:"Team Leader, Backend & Infra",period:"2026.01 ~ 02",description:["기프티콘 관리 및 판매 서비스 개발","MSA 아키텍처 설계 및 구축","Spring Boot, React Native, Redis GEO 활용"]},{id:3,title:"삼성 청년 SW 아카데미 (SSAFY) 14기",type:"Education",role:"Trainee",period:"2025.07 ~ Present",description:["Java 전공 트랙","알고리즘 및 웹/모바일 개발 집중 교육"]},{id:4,title:"정보처리기사 취득",type:"Certificate",role:"License",period:"2025.06",description:["한국산업인력공단"]},{id:5,title:"SQLD 취득",type:"Certificate",role:"License",period:"2025.04",description:["한국데이터산업진흥원"]},{id:6,title:"전북대학교 졸업",type:"Education",role:"Bachelor",period:"2025.02",description:["정보컴퓨터공학 전공","공학인증 심화과정 이수"]}],T2=()=>N.jsxs(O2,{id:"timeline",children:[N.jsx(j2,{children:"Timeline"}),N.jsx(M2,{children:A2.map((u,f)=>N.jsx(C2,{children:N.jsxs(D2,{children:[N.jsx(N2,{children:u.period}),N.jsx(R2,{type:u.type,children:u.type}),N.jsx(U2,{children:u.title}),N.jsx(H2,{children:u.role}),N.jsx(B2,{children:u.description.map((d,o)=>N.jsx("li",{children:d},o))})]})},u.id))})]}),O2=F.section`
+  padding: 40px 0;
   max-width: 800px;
   margin: 0 auto;
 `,j2=F.h2`
@@ -550,7 +550,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }
 `,C2=F.div`
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 
   &::before {
     content: '';
@@ -630,7 +630,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   &:hover {
     background-color: rgba(100, 255, 218, 0.1);
   }
-`;function Q2(){return N.jsxs(uy,{children:[N.jsx(py,{}),N.jsx(zy,{}),N.jsx(Xy,{}),N.jsx(Py,{}),N.jsx(s2,{}),N.jsx(T2,{}),N.jsx(w2,{})]})}const X2={colors:{primary:"#0a192f",secondary:"#64ffda",textPrimary:"#ccd6f6",textSecondary:"#8892b0",bg:"#0a192f",bgLight:"#112240",white:"#e6f1ff",transition:"all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)"},fonts:{main:"'Inter', sans-serif",mono:"'Fira Code', monospace"},breakpoints:{mobile:"768px",tablet:"1024px"}},Z2=jv`
+`;function Q2(){return N.jsxs(uy,{children:[N.jsx(py,{}),N.jsx(zy,{}),N.jsx(Xy,{}),N.jsx(Py,{}),N.jsx(s2,{}),N.jsx(T2,{}),N.jsx(w2,{})]})}const X2={colors:{primary:"#0056b3",secondary:"#17a2b8",textPrimary:"#212529",textSecondary:"#495057",bg:"#ffffff",bgLight:"#f8f9fa",white:"#ffffff",border:"#dee2e6",backgroundAlt:"#f8f9fa",transition:"all 0.25s ease-in-out"},fonts:{main:"'Inter', sans-serif",mono:"'Fira Code', monospace"},breakpoints:{mobile:"768px",tablet:"1024px"}},Z2=jv`
   *, *::before, *::after {
     margin: 0;
     padding: 0;

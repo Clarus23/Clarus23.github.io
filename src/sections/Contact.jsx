@@ -2,28 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Contact = () => {
-    return (
-        <Section id="contact">
-            <SectionTitle>Contact</SectionTitle>
-            <ContactWrapper>
-                <p>
-                    프로젝트 제안이나 질문이 있으시면 언제든지 연락주세요.<br />
-                    함께 성장할 수 있는 기회를 기다립니다.
-                </p>
-                <EmailButton href="mailto:email@example.com">
-                    이메일 보내기
-                </EmailButton>
-            </ContactWrapper>
-        </Section>
-    );
+  return (
+    <Section id="contact">
+      <SectionTitle>Contact</SectionTitle>
+      <ContactWrapper>
+        <p>
+          프로젝트 제안이나 질문이 있으시면 언제든지 연락주세요.<br />
+          함께 성장할 수 있는 기회를 기다립니다.
+        </p>
+        <EmailButton href="mailto:email@example.com">
+          이메일 보내기
+        </EmailButton>
+      </ContactWrapper>
+    </Section>
+  );
 };
 
 const Section = styled.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  padding-bottom: 150px;
+  padding-bottom: 80px;
 `;
 
 const SectionTitle = styled.h2`

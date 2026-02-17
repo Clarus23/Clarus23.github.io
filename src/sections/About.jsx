@@ -30,31 +30,38 @@ const About = () => {
                 </p>
             </Bio>
 
-            <Grid>
-                {infoList.map((info, index) => (
-                    <InfoCard key={index} onClick={() => info.isCopyable && copyToClipboard(info.value)} isCopyable={info.isCopyable}>
-                        <IconWrapper>{info.icon}</IconWrapper>
-                        <InfoContext>
-                            <Label>{info.label}</Label>
-                            <Value>{info.value}</Value>
-                        </InfoContext>
-                    </InfoCard>
-                ))}
-            </Grid>
+            <ContentWrapper>
+                <ProfileColumn>
+                    <SubTitle>Personal Info</SubTitle>
+                    <Grid>
+                        {infoList.map((info, index) => (
+                            <InfoCard key={index} onClick={() => info.isCopyable && copyToClipboard(info.value)} isCopyable={info.isCopyable}>
+                                <IconWrapper>{info.icon}</IconWrapper>
+                                <InfoContext>
+                                    <Label>{info.label}</Label>
+                                    <Value>{info.value}</Value>
+                                </InfoContext>
+                            </InfoCard>
+                        ))}
+                    </Grid>
+                </ProfileColumn>
 
-            <SubSectionTitle>Education</SubSectionTitle>
-            <EducationList>
-                {education.map((edu) => (
-                    <EducationItem key={edu.id}>
-                        <EduPeriod>{edu.period}</EduPeriod>
-                        <EduContent>
-                            <EduSchool>{edu.school}</EduSchool>
-                            <EduMajor>{edu.major}</EduMajor>
-                            <EduDesc>{edu.description}</EduDesc>
-                        </EduContent>
-                    </EducationItem>
-                ))}
-            </EducationList>
+                <EducationColumn>
+                    <SubTitle>Education</SubTitle>
+                    <EducationList>
+                        {education.map((edu) => (
+                            <EducationItem key={edu.id}>
+                                <EduHeader>
+                                    <EduSchool>{edu.school}</EduSchool>
+                                    <EduPeriod>{edu.period}</EduPeriod>
+                                </EduHeader>
+                                <EduMajor>{edu.major}</EduMajor>
+                                <EduDesc>{edu.description}</EduDesc>
+                            </EducationItem>
+                        ))}
+                    </EducationList>
+                </EducationColumn>
+            </ContentWrapper>
         </Section>
     );
 };
@@ -72,19 +79,37 @@ const SectionTitle = styled.h2`
   text-align: center;
 `;
 
-const SubSectionTitle = styled.h3`
+const ContentWrapper = styled.div`
+  display: flex;
+  gap: 4rem;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    flex-direction: column;
+    gap: 3rem;
+  }
+`;
+
+const ProfileColumn = styled.div`
+  flex: 1;
+`;
+
+const EducationColumn = styled.div`
+  flex: 1;
+`;
+
+const SubTitle = styled.h3`
   font-size: 1.5rem;
-  margin: 2rem 0 1rem;
+  margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.colors.textPrimary};
-  border-left: 5px solid ${({ theme }) => theme.colors.primary};
+  border-left: 4px solid ${({ theme }) => theme.colors.primary};
   padding-left: 1rem;
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* Changed to 2 columns for better fit */
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
@@ -150,31 +175,39 @@ const EducationList = styled.div`
 `;
 
 const EducationItem = styled.div`
-  display: flex;
-  gap: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border || '#eee'};
+  background: ${({ theme }) => theme.colors.bgLight};
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.border || '#eee'};
+  transition: transform 0.2s;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    flex-direction: column;
-    gap: 0.5rem;
+  &:hover {
+    transform: translateY(-3px);
   }
 `;
 
-const EduPeriod = styled.div`
-  min-width: 150px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.textSecondary};
+const EduHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
 `;
 
-const EduContent = styled.div`
-  flex: 1;
+const EduPeriod = styled.span`
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-family: ${({ theme }) => theme.fonts.mono};
+  background: ${({ theme }) => theme.colors.bg};
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
 `;
+
+
 
 const EduSchool = styled.h4`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: ${({ theme }) => theme.colors.textPrimary};
-  margin-bottom: 0.5rem;
+  font-weight: bold;
 `;
 
 const EduMajor = styled.div`

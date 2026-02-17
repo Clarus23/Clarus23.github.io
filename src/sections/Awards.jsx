@@ -4,30 +4,30 @@ import { awards } from '../data/awards';
 import { FaAward, FaTrophy } from 'react-icons/fa';
 
 const Awards = () => {
-    return (
-        <Section id="awards">
-            <SectionTitle>Awards & Certifications</SectionTitle>
-            <Grid>
-                {awards.map((item) => (
-                    <Card key={item.id}>
-                        <IconWrapper>
-                            {item.title.includes('기사') || item.title.includes('SQL') ? <FaAward /> : <FaTrophy />}
-                        </IconWrapper>
-                        <Content>
-                            <Date>{item.date}</Date>
-                            <Title>{item.title}</Title>
-                            <Organization>{item.organization}</Organization>
-                            <Description>{item.description}</Description>
-                        </Content>
-                    </Card>
-                ))}
-            </Grid>
-        </Section>
-    );
+  return (
+    <Section id="awards">
+      <SectionTitle>Awards & Certifications</SectionTitle>
+      <Grid>
+        {awards.map((item) => (
+          <Card key={item.id}>
+            <IconWrapper>
+              {item.title.includes('기사') || item.title.includes('SQL') ? <FaAward /> : <FaTrophy />}
+            </IconWrapper>
+            <Content>
+              <Date>{item.date}</Date>
+              <Title>{item.title}</Title>
+              <Organization>{item.organization}</Organization>
+              <Description>{item.description}</Description>
+            </Content>
+          </Card>
+        ))}
+      </Grid>
+    </Section>
+  );
 };
 
 const Section = styled.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 1000px;
   margin: 0 auto;
 `;

@@ -1,6 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import { skills } from '../data/skills';
+import {
+  FaJava, FaJs, FaReact, FaVuejs, FaGitAlt, FaDocker, FaAws, FaJira
+} from 'react-icons/fa';
+import { SiSpringboot, SiSpring, SiMysql, SiRedis } from 'react-icons/si';
+
+const iconMap = {
+  "Java": <FaJava />,
+  "Spring Boot": <SiSpringboot />,
+  "JPA": <SiSpring />,
+  "MySQL": <SiMysql />,
+  "Redis": <SiRedis />,
+  "Vue.js": <FaVuejs />,
+  "JavaScript": <FaJs />,
+  "React": <FaReact />,
+  "Git": <FaGitAlt />,
+  "Docker": <FaDocker />,
+  "AWS": <FaAws />,
+  "Jira": <FaJira />
+};
 
 const Skills = () => {
   return (
@@ -13,6 +32,7 @@ const Skills = () => {
             <SkillList>
               {items.map((skill, index) => (
                 <SkillItem key={index}>
+                  <IconWrapper>{iconMap[skill.name]}</IconWrapper>
                   <SkillName>{skill.name}</SkillName>
                   {skill.level && <Tooltip>{skill.level}</Tooltip>}
                 </SkillItem>
@@ -26,7 +46,7 @@ const Skills = () => {
 };
 
 const Section = styled.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 1000px;
   margin: 0 auto;
 `;
@@ -101,21 +121,34 @@ const Tooltip = styled.div`
 const SkillItem = styled.div`
   position: relative;
   background-color: ${({ theme }) => theme.colors.bg};
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
   color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   cursor: default;
-  border: 1px solid ${({ theme }) => theme.colors.bgLight};
+  border: 1px solid ${({ theme }) => theme.colors.border || '#eee'};
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.secondary};
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     
     ${Tooltip} {
       opacity: 1;
       visibility: visible;
     }
   }
+`;
+
+const IconWrapper = styled.span`
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.colors.secondary};
+  display: flex;
+  align-items: center;
 `;
 
 const SkillName = styled.span`

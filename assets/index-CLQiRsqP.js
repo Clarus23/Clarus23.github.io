@@ -314,7 +314,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   color: ${({theme:u})=>u.colors.textSecondary};
   font-size: 0.95rem;
 `,Qy={backend:[{name:"Java",level:90},{name:"Spring Boot",level:85},{name:"JPA",level:80},{name:"MySQL",level:80},{name:"Redis",level:75}],frontend:[{name:"Vue.js",level:80},{name:"JavaScript",level:80},{name:"React",level:70}],tools:[{name:"Git",level:85},{name:"Docker",level:75},{name:"AWS",level:70},{name:"Jira",level:80}]},Xy=()=>N.jsxs(Zy,{id:"skills",children:[N.jsx(Vy,{children:"Skills"}),N.jsx(Ky,{children:Object.entries(Qy).map(([u,f])=>N.jsxs(Jy,{children:[N.jsx($y,{children:u.toUpperCase()}),N.jsx(ky,{children:f.map((d,o)=>N.jsxs(Wy,{children:[N.jsx(Fy,{children:d.name}),d.level&&N.jsx(I0,{children:d.level})]},o))})]},u))})]}),Zy=F.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 1000px;
   margin: 0 auto;
 `,Vy=F.h2`
@@ -393,7 +393,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,Fy=F.span`
   
 `,Iy=[{id:1,title:"정보처리기사",date:"2025",organization:"한국산업인력공단",description:"국가기술자격",link:""},{id:2,title:"SQLD (SQL 개발자)",date:"2025",organization:"한국데이터산업진흥원",description:"국가공인 민간자격",link:""}],Py=()=>N.jsxs(t2,{id:"awards",children:[N.jsx(e2,{children:"Awards & Certifications"}),N.jsx(l2,{children:Iy.map(u=>N.jsxs(n2,{children:[N.jsx(a2,{children:u.title.includes("기사")||u.title.includes("SQL")?N.jsx(wv,{}):N.jsx(Kv,{})}),N.jsxs(u2,{children:[N.jsx(i2,{children:u.date}),N.jsx(c2,{children:u.title}),N.jsx(r2,{children:u.organization}),N.jsx(f2,{children:u.description})]})]},u.id))})]}),t2=F.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 1000px;
   margin: 0 auto;
 `,e2=F.h2`
@@ -600,11 +600,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     line-height: 1.6;
   }
 `,w2=()=>N.jsxs(Y2,{id:"contact",children:[N.jsx(q2,{children:"Contact"}),N.jsxs(G2,{children:[N.jsxs("p",{children:["프로젝트 제안이나 질문이 있으시면 언제든지 연락주세요.",N.jsx("br",{}),"함께 성장할 수 있는 기회를 기다립니다."]}),N.jsx(L2,{href:"mailto:email@example.com",children:"이메일 보내기"})]})]}),Y2=F.section`
-  padding: 100px 0;
+  padding: 40px 0;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  padding-bottom: 150px;
+  padding-bottom: 80px;
 `,q2=F.h2`
   font-size: 2.5rem;
   margin-bottom: 3rem;

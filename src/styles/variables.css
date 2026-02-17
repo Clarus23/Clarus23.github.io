@@ -1,0 +1,16 @@
+:root {
+  /* Colors */
+  --color-primary: #0a192f;
+  --color-secondary: #64ffda;
+  --color-text-primary: #ccd6f6;
+  --color-text-secondary: #8892b0;
+  --color-bg: #0a192f;
+  --color-bg-light: #112240;
+  
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Transition */
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}

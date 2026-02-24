@@ -12,6 +12,16 @@ export const timeline = [
         ]
     },
     {
+        id: 2,
+        title: "TOEIC Speaking IM3 취득",
+        type: "Certificate",
+        role: "어학점수",
+        period: "2026.02.15",
+        description: [
+            "ETS"
+        ]
+    },
+    {
         id: 3,
         title: "삼성 청년 SW 아카데미 (SSAFY) 14기",
         type: "Education",

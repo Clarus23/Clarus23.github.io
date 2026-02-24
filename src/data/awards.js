@@ -14,5 +14,13 @@ export const awards = [
         organization: "한국데이터산업진흥원",
         description: "국가공인 민간자격",
         link: ""
+    },
+    {
+        id: 3,
+        title: "TOEIC Speaking IM3",
+        date: "2026.02.15",
+        organization: "ETS",
+        description: "어학점수",
+        link: ""
     }
 ];

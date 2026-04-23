@@ -9,13 +9,13 @@ const Awards = () => {
       <SectionTitle>Awards & Certifications</SectionTitle>
       <Grid>
         {awards.map((item) => (
-          <Card key={item.id}>
-            <IconWrapper>
-              {item.title.includes('기사') || item.title.includes('SQL') ? <FaAward /> : <FaTrophy />}
+          <Card key={item.id} $isAward={item.isAward}>
+            <IconWrapper $isAward={item.isAward}>
+              {item.isAward ? <FaTrophy /> : <FaAward />}
             </IconWrapper>
             <Content>
               <Date>{item.date}</Date>
-              <Title>{item.title}</Title>
+              <Title $isAward={item.isAward}>{item.title}</Title>
               <Organization>{item.organization}</Organization>
               <Description>{item.description}</Description>
             </Content>
@@ -55,6 +55,7 @@ const Card = styled.div`
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
   border: 1px solid ${({ theme }) => theme.colors.border || 'transparent'};
+  border-top: ${({ $isAward }) => $isAward ? '3px solid #c9a227' : '3px solid #4a90d9'};
 
   &:hover {
     transform: translateY(-5px);
@@ -64,7 +65,7 @@ const Card = styled.div`
 
 const IconWrapper = styled.div`
   font-size: 2.5rem;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ $isAward, theme }) => $isAward ? '#c9a227' : theme.colors.primary};
   margin-bottom: 1.5rem;
 `;
 

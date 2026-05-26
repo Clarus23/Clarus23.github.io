@@ -11,7 +11,7 @@ export const awards = [
     {
         id: 2,
         title: "정보처리기사",
-        date: "2025",
+        date: "2024",
         organization: "한국산업인력공단",
         description: "국가기술자격",
         link: ""

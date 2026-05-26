@@ -1,6 +1,19 @@
 // 시간 내림차순 (최신 → 과거) 정렬
 export const timeline = [
     {
+        id: 8,
+        title: "ANVI",
+        type: "Project",
+        role: "Backend 핵심 개발자 / 인프라 · CI·CD · 모니터링 (단독)",
+        period: "2026.04 ~ 05",
+        description: [
+            "온디바이스 AI 기반 비대면 시험 감독 솔루션 (SSAFY 14기 기업연계 — Edint)",
+            "App/Web 2서버 분리 + Redis Pub/Sub 8채널 + Redis Sentinel HA 설계·구현",
+            "Heartbeat TTL + Keyspace Notification으로 만료 감지 지연 15초 → 1초 미만",
+            "GitLab CI/CD 변경 경로 단위 배포 + Prometheus·Grafana 모니터링 도입"
+        ]
+    },
+    {
         id: 1,
         title: "알맹이 (Almaengi)",
         type: "Project",
@@ -46,21 +59,11 @@ export const timeline = [
         ]
     },
     {
-        id: 5,
-        title: "정보처리기사 취득",
-        type: "Certificate",
-        role: "License",
-        period: "2025.06",
-        description: [
-            "한국산업인력공단"
-        ]
-    },
-    {
         id: 6,
         title: "SQLD 취득",
         type: "Certificate",
         role: "License",
-        period: "2025.04",
+        period: "2025.06",
         description: [
             "한국데이터산업진흥원"
         ]
@@ -74,6 +77,16 @@ export const timeline = [
         description: [
             "정보컴퓨터공학 전공",
             "공학인증 심화과정 이수"
+        ]
+    },
+    {
+        id: 5,
+        title: "정보처리기사 취득",
+        type: "Certificate",
+        role: "License",
+        period: "2024.06",
+        description: [
+            "한국산업인력공단"
         ]
     }
 ];

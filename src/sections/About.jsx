@@ -22,19 +22,11 @@ const About = () => {
     return (
         <Section id="about">
             <SectionTitle>About Me</SectionTitle>
-            <Bio>
-                <p>
-                    <b>"장애 없는 서비스를 만들기 위해, 실패 경로까지 설계하는 개발자입니다."</b><br /><br />
-                    백엔드 시스템의 안정성과 신뢰성을 최우선 가치로 삼습니다.
-                    푸시 알림 실패 시에도 이력을 보존하고, 트랜잭션 롤백 후 이벤트가 선노출되지 않도록 설계하는 등
-                    정상 경로뿐 아니라 <b>실패 경로까지 고려한 구현</b>을 지향합니다.<br /><br />
-                    MSA 서버 간 상태 정합성, 실시간 채팅의 fan-out 일관성, 외부 API 장애 대응까지—
-                    사용자가 체감하지 못하는 곳에서 시스템이 조용히 신뢰를 쌓도록 만드는 것이 목표입니다.
-                </p>
-            </Bio>
 
-            <ContentWrapper>
-                <ProfileColumn>
+            <TwoColumn>
+                {/* 왼쪽: 사진 + Personal Info */}
+                <LeftColumn>
+                    <ProfilePhoto src="/profile.jpg" alt="정혜원 프로필 사진" />
                     <SubTitle>Personal Info</SubTitle>
                     <Grid>
                         {infoList.map((info, index) => (
@@ -47,9 +39,21 @@ const About = () => {
                             </InfoCard>
                         ))}
                     </Grid>
-                </ProfileColumn>
+                </LeftColumn>
 
-                <EducationColumn>
+                {/* 오른쪽: Bio + Education */}
+                <RightColumn>
+                    <Bio>
+                        <p>
+                            <b>"장애 없는 서비스를 만들기 위해, 실패 경로까지 설계하는 개발자입니다."</b><br /><br />
+                            백엔드 시스템의 안정성과 신뢰성을 최우선 가치로 삼습니다.
+                            푸시 알림 실패 시에도 이력을 보존하고, 트랜잭션 롤백 후 이벤트가 선노출되지 않도록 설계하는 등
+                            정상 경로뿐 아니라 <b>실패 경로까지 고려한 구현</b>을 지향합니다.<br /><br />
+                            MSA 서버 간 상태 정합성, 실시간 채팅의 fan-out 일관성, 외부 API 장애 대응까지—
+                            사용자가 체감하지 못하는 곳에서 시스템이 조용히 신뢰를 쌓도록 만드는 것이 목표입니다.
+                        </p>
+                    </Bio>
+
                     <SubTitle>Education</SubTitle>
                     <EducationList>
                         {education.map((edu) => (
@@ -63,8 +67,8 @@ const About = () => {
                             </EducationItem>
                         ))}
                     </EducationList>
-                </EducationColumn>
-            </ContentWrapper>
+                </RightColumn>
+            </TwoColumn>
         </Section>
     );
 };
@@ -82,22 +86,39 @@ const SectionTitle = styled.h2`
   text-align: center;
 `;
 
-const ContentWrapper = styled.div`
-  display: flex;
-  gap: 4rem;
-  
+const TwoColumn = styled.div`
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: start;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    flex-direction: column;
-    gap: 3rem;
+    grid-template-columns: 1fr;
   }
 `;
 
-const ProfileColumn = styled.div`
-  flex: 1;
+const LeftColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
 `;
 
-const EducationColumn = styled.div`
-  flex: 1;
+const RightColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
+
+const ProfilePhoto = styled.img`
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 10px;
+  border: 2px solid ${({ theme }) => theme.colors.secondary}44;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+  display: block;
 `;
 
 const SubTitle = styled.h3`
@@ -110,17 +131,9 @@ const SubTitle = styled.h3`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Changed to 2 columns for better fit */
-  gap: 1rem;
-  margin-bottom: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  width: 100%;
 `;
 
 const InfoCard = styled.div`
@@ -164,10 +177,7 @@ const Value = styled.div`
 const Bio = styled.div`
   color: ${({ theme }) => theme.colors.textSecondary};
   line-height: 1.8;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 4rem; /* Added margin bottom */
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 `;
 
 /* Education Styles */

@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import Button from '../components/ui/Button';
-import { FaGithub, FaEnvelope, FaPenNib, FaFileAlt } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaPenNib } from 'react-icons/fa';
 
 const Hero = () => {
   return (
     <Section id="hero">
       <Content>
         <Intro>안녕하세요, 저는</Intro>
-        <Title>Hyewon Jung입니다.</Title>
+        <Title>정혜원입니다.</Title>
         <Subtitle>
           <Typewriter
             options={{
@@ -34,9 +34,6 @@ const Hero = () => {
           <IconButton href="https://clarus23.tistory.com" target="_blank" rel="noopener noreferrer" aria-label="Blog">
             <FaPenNib />
           </IconButton>
-          <IconButton href="#" target="_blank" rel="noopener noreferrer" aria-label="Resume">
-            <FaFileAlt />
-          </IconButton>
         </ButtonGroup>
       </Content>
     </Section>
@@ -49,7 +46,7 @@ const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  min-height: auto; /* Removed 100vh */
+  min-height: auto;
 `;
 
 const Content = styled.div`
@@ -77,7 +74,7 @@ const Subtitle = styled.div`
   color: ${({ theme }) => theme.colors.textSecondary};
   line-height: 1.1;
   margin-bottom: 1rem;
-  height: 60px; /* Reduced height */
+  height: 60px;
   display: flex;
   align-items: center;
 

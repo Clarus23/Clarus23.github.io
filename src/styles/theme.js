@@ -12,7 +12,7 @@ export const theme = {
         transition: "all 0.25s ease-in-out"
     },
     fonts: {
-        main: "'Inter', sans-serif",
+        main: "'Pretendard', sans-serif",
         mono: "'Fira Code', monospace"
     },
     breakpoints: {

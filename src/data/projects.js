@@ -1,5 +1,6 @@
 import conyThumbnail from '../assets/images/cony-thumbnail.png';
 import almaengiThumbnail from '../assets/images/almaengi-thumbnail.png';
+import anviThumbnail from '../assets/images/Anvi_thumbnail.png';
 
 export const projects = [
     {
@@ -31,7 +32,7 @@ export const projects = [
             infra: "MySQL, Redis GEO, AWS S3, Docker Compose, Jenkins, Prometheus, Grafana",
             external: "Google/Kakao OAuth, KakaoPay, Firebase Cloud Messaging"
         },
-        contribution: "244 커밋 (전체 918건 중 약 26.6%)",
+
         modalSections: [
             {
                 title: "기프티콘 관리 도메인 고도화",
@@ -85,9 +86,9 @@ export const projects = [
             }
         ],
         outcomes: [
-            "백엔드 핵심 기능을 end-to-end로 구현하며 서비스 핵심 가치(등록-알림-거래-추천)를 연결",
-            "Redis 기반 위치 기능 최적화와 내부 API 동기화/보안 설계로 운영 안정성 개선",
-            "이슈 대응 중심의 다수 fix/test 커밋을 통해 품질 안정화 주도"
+            "위치 기반 처리 한계 극복: Greedy Clustering과 Redis GEO를 활용해 Android의 지오펜스 100개 제약을 우회하고, 대규모 매장 탐색 파이프라인의 응답성을 확보했습니다.",
+            "마이크로서비스 정합성 보장: 서비스 간(payment ↔ manage) 분리된 환경에서 X-Internal-Key 인증과 상태 동기화 API를 설계하여, 소유권 이전 시 발생할 수 있는 데이터 불일치 가능성을 차단했습니다.",
+            "운영 리스크 방어 설계: 외부 연동(FCM, OCR) 실패 시에도 핵심 비즈니스 로직이 중단되지 않도록 Fallback 및 Best-effort 히스토리 보존 전략을 도입했습니다."
         ],
         lessons: [
             "도메인 정합성은 기능 구현보다 우선 설계해야 운영 장애를 줄일 수 있음을 체감",
@@ -122,7 +123,7 @@ export const projects = [
             db: "PostgreSQL",
             external: "Firebase Cloud Messaging"
         },
-        contribution: "54 커밋 (비-머지 30개)",
+
         modalSections: [
             {
                 title: "실시간 경매(대타) 동기화",
@@ -169,9 +170,9 @@ export const projects = [
             }
         ],
         outcomes: [
-            "백엔드 핵심 도메인(매장/직원, 경매, 채팅, 알림)을 주도적으로 설계/구현하고 프론트 연동까지 완료",
-            "실시간/알림 영역에서 정합성과 안정성을 함께 고려한 구조 도입",
-            "팀 리더로서 일정 조율, 코드 리뷰, 기술 의사결정 주도"
+            "실시간 동기화 병목 해결: STOMP와 Redis Pub/Sub을 활용한 Fan-out 구조를 도입하여, 그룹 채팅 및 대타 경매의 실시간 알림 지연을 최소화했습니다.",
+            "동시성 및 중복 발생 제어: 인메모리 락(Lock)과 쿨다운(Cooldown) 전략을 도입하여 크로스탭 환경에서의 FCM 중복 등록 및 중복 알림 이슈를 완전히 해결했습니다.",
+            "견고한 상태 모델 기반 아키텍처: 단순한 분기문(if-else)이 아닌 직원의 '상태 전이 모델'을 구축하고 전 도메인 권한 정책에 일관되게 적용하여, 팀 전원의 개발 속도와 코드 안전성을 높였습니다."
         ],
         lessons: [
             "실시간 시스템에서는 '빠른 전파'보다 트랜잭션 경계와 정합성 보장이 우선임을 체득",
@@ -185,8 +186,9 @@ export const projects = [
         subtitle: "온디바이스 AI 기반 비대면 시험 감독 솔루션",
         period: "2026.04 - 2026.05",
         teamSize: "6인 팀 (SSAFY 14기 기업연계 — Edint / S301 BADO)",
-        myRole: "Backend 핵심 개발자 / 인프라 · CI·CD · 모니터링 (단독)",
+        myRole: "백엔드 개발자 / 인프라 · CI·CD · 모니터링",
         description: "CES 2024 발표 기업 Edint와 협업한 차세대 비대면 시험 감독 PoC 프로젝트입니다. 응시자의 Android 디바이스에서 YOLO + Gemma 4 VLM을 직접 추론(On-Device AI)해 부정행위를 실시간 감지하고, 서버에는 메타데이터와 비식별 처리된 이미지만 전송합니다. 이로써 기존 서버 중심 솔루션의 4대 문제(개인정보 침해 · 네트워크 의존 · 서버 비용 · 감지 지연)를 동시에 해결한 Privacy by Design 아키텍처를 구현했습니다.",
+        thumbnail: anviThumbnail,
         tags: ["Java 17", "Spring Boot 3", "Spring Security 6", "JPA", "PostgreSQL 16", "Redis 7", "Redis Sentinel", "SSE", "Pub/Sub", "JWT", "Docker Compose", "Nginx", "GitLab CI/CD", "Prometheus", "Grafana", "AWS S3"],
         github: "",
         demo: "",
@@ -209,10 +211,10 @@ export const projects = [
             external: "AWS SDK v2 (S3 Presigned URL), Spring Mail, springdoc-openapi",
             test: "JUnit 5, Mockito, AssertJ, BDDMockito, Postman, curl -N, redis-cli PSUBSCRIBE"
         },
-        contribution: "260 커밋 (팀 전체 614건 중 약 42.3%) / JIRA 티켓 29건 (BE 핵심 + 인프라·CI·CD·모니터링 전 영역)",
+
         modalSections: [
             {
-                title: "BE 멀티 프로젝트 골격 + 컨벤션 단단화",
+                title: "BE 멀티 프로젝트 골격 + 컨벤션 규격화",
                 problem: "App/Web 두 서버가 응답 포맷·예외·로깅·문서화 컨벤션이 갈라지면 6주 내내 누수가 누적되어 운영 장애로 이어짐",
                 implementations: [
                     "BaseEntity + JPA Auditing + 논리 삭제 패턴 통일",
@@ -300,10 +302,10 @@ export const projects = [
             }
         ],
         outcomes: [
-            "비대면 시험 감독 솔루션 BE 핵심 영역(인증·도메인·실시간) 설계·구현 + 인프라·CI·CD·모니터링 단독 운영",
-            "5주간 260 커밋(팀 전체 42.3%) + JIRA 29건, 단위 테스트 12건 + 통합 시나리오 11건으로 분산 비동기 시스템 전 구간 수동 검증",
-            "Spring Security 6.x ASYNC dispatch 차단 이슈를 '타이밍 → 스레드 → 시스템 모델' 3단계 가설-검증으로 한 줄 수정에 도달",
-            "Edint 社의 차세대 온디바이스 추론 솔루션 PoC로 활용"
+            "초저지연 감지 아키텍처 달성: DB 폴링 대신 Redis TTL + Keyspace Notification을 도입하여, 동시 접속자 수에 관계없이 Heartbeat 만료 감지 지연 시간을 평균 15초에서 1초 미만으로 단축했습니다.",
+            "단일 장애점(SPOF) 제거: Redis Sentinel 3노드(Quorum 2)를 구성하고 자동 Failover를 검증하여, 실시간 이벤트 브로커의 고가용성(HA)을 확보했습니다.",
+            "장애 추적 방법론 정립: Spring Security 6.x 비동기 차단 이슈 발생 시, '타이밍 → 스레드 → 시스템 모델' 순서의 가설 검증을 통해 근본 원인을 파악하고 해결하는 트러블슈팅 역량을 증명했습니다.",
+            "비즈니스 가치 창출: Edint 社의 차세대 온디바이스 추론 솔루션 PoC로 활용되어, 기존 서버 중심 아키텍처의 한계를 돌파하는 기반을 마련했습니다."
         ],
         lessons: [
             "공통 컴포넌트는 '투명한 래핑'이 아닌 '선택적 래핑'이어야 함을 체득 (SSE/Actuator 분기 사례)",

@@ -248,7 +248,7 @@ const ProjectTitle = styled.h3`
 const Subtitle = styled.span`
   color: ${({ theme }) => theme.colors.secondary};
   font-size: 0.85rem;
-  font-family: ${({ theme }) => theme.fonts.mono};
+  font-family: ${({ theme }) => theme.fonts.main};
 `;
 
 const MetaBadges = styled.div`
@@ -260,7 +260,7 @@ const MetaBadges = styled.div`
 const PeriodBadge = styled.span`
   background-color: ${({ theme }) => theme.colors.bg};
   color: ${({ theme }) => theme.colors.secondary};
-  font-family: ${({ theme }) => theme.fonts.mono};
+  font-family: ${({ theme }) => theme.fonts.main};
   font-size: 0.74rem;
   padding: 0.18rem 0.55rem;
   border-radius: 4px;
@@ -330,7 +330,7 @@ const TechStack = styled.div`
 const Tag = styled.span`
   background-color: ${({ theme }) => theme.colors.bg};
   color: ${({ theme }) => theme.colors.secondary};
-  font-family: ${({ theme }) => theme.fonts.mono};
+  font-family: ${({ theme }) => theme.fonts.main};
   font-size: 0.72rem;
   padding: 0.18rem 0.45rem;
   border-radius: 4px;
@@ -360,7 +360,7 @@ const LinkButton = styled.a`
 const MoreHint = styled.span`
   margin-left: auto;
   color: ${({ theme }) => theme.colors.secondary};
-  font-family: ${({ theme }) => theme.fonts.mono};
+  font-family: ${({ theme }) => theme.fonts.main};
   font-size: 0.75rem;
   opacity: 0.7;
   transition: opacity 0.2s;

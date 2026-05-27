@@ -21,7 +21,7 @@ const Hero = () => {
         </Subtitle>
         <Description>
           사용자에게 가치를 전달하는 백엔드 개발자입니다.<br />
-          안정적이고 확장 가능한 시스템을 구축하는 것에 열정을 가지고 있습니다.
+          안정적이고 확장 가능한 시스템을 구축하는 것을 목표로 합니다.
         </Description>
         <ButtonGroup>
           <Button href="#about" variant="primary">더 알아보기</Button>
@@ -31,9 +31,7 @@ const Hero = () => {
           <IconButton href="mailto:dnjs3023@gmail.com" aria-label="Email">
             <FaEnvelope />
           </IconButton>
-          <IconButton href="https://clarus23.tistory.com" target="_blank" rel="noopener noreferrer" aria-label="Blog">
-            <FaPenNib />
-          </IconButton>
+
         </ButtonGroup>
       </Content>
     </Section>

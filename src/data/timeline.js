@@ -4,13 +4,13 @@ export const timeline = [
         id: 8,
         title: "ANVI",
         type: "Project",
-        role: "Backend 핵심 개발자 / 인프라 · CI·CD · 모니터링 (단독)",
+        role: "Backend, Infra",
         period: "2026.04 ~ 05",
         description: [
-            "온디바이스 AI 기반 비대면 시험 감독 솔루션 (SSAFY 14기 기업연계 — Edint)",
-            "App/Web 2서버 분리 + Redis Pub/Sub 8채널 + Redis Sentinel HA 설계·구현",
-            "Heartbeat TTL + Keyspace Notification으로 만료 감지 지연 15초 → 1초 미만",
-            "GitLab CI/CD 변경 경로 단위 배포 + Prometheus·Grafana 모니터링 도입"
+            "온디바이스 AI 기반 비대면 시험 감독 솔루션 (기업연계)",
+            "Redis Sentinel HA 아키텍처 및 Pub/Sub 동기화 구현",
+            "Heartbeat 만료 감지 최적화",
+            "CI/CD 자동화 파이프라인 및 시스템 모니터링 구축"
         ]
     },
     {

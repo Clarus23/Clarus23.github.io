@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <StyledHeader scrolled={scrolled}>
       <Nav>
-        <Logo href="#">Clarus23</Logo>
+        <Logo href="#">JHW's portfolio</Logo>
         <Hamburger onClick={toggleMenu}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </Hamburger>

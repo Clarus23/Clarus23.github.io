@@ -11,7 +11,7 @@ export const education = [
         school: "전북대학교",
         period: "2018.03 - 2025.02",
         major: "정보컴퓨터공학",
-        description: "컴퓨터 공학 전반 학습, 정보 보안 및 네트워크 중점 학습"
+        description: "컴퓨터 공학 전반 학습"
     },
     {
         id: 3,

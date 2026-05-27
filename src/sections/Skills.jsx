@@ -2,22 +2,36 @@ import React from 'react';
 import styled from 'styled-components';
 import { skills } from '../data/skills';
 import {
-  FaJava, FaJs, FaReact, FaVuejs, FaGitAlt, FaDocker, FaAws, FaJira
+  FaJava, FaJs, FaReact, FaVuejs, FaGitAlt, FaDocker, FaAws, FaJira, FaCode,
+  FaNetworkWired, FaJenkins, FaGitlab, FaBroadcastTower
 } from 'react-icons/fa';
-import { SiSpringboot, SiSpring, SiMysql, SiRedis } from 'react-icons/si';
+import { 
+  SiSpringboot, SiSpring, SiMysql, SiRedis, SiPostgresql, 
+  SiSpringsecurity, SiNginx, SiPrometheus, SiGrafana, SiHibernate
+} from 'react-icons/si';
 
 const iconMap = {
   "Java": <FaJava />,
   "Spring Boot": <SiSpringboot />,
-  "JPA": <SiSpring />,
+  "JPA": <SiHibernate />,
+  "Spring Security": <SiSpringsecurity />,
+  "Spring Batch": <SiSpring />,
+  "WebSocket": <FaNetworkWired />,
+  "SSE": <FaBroadcastTower />,
   "MySQL": <SiMysql />,
+  "PostgreSQL": <SiPostgresql />,
   "Redis": <SiRedis />,
+  "React": <FaReact />,
   "Vue.js": <FaVuejs />,
   "JavaScript": <FaJs />,
-  "React": <FaReact />,
-  "Git": <FaGitAlt />,
-  "Docker": <FaDocker />,
   "AWS": <FaAws />,
+  "Docker": <FaDocker />,
+  "Jenkins": <FaJenkins />,
+  "GitLab CI": <FaGitlab />,
+  "Nginx": <SiNginx />,
+  "Prometheus": <SiPrometheus />,
+  "Grafana": <SiGrafana />,
+  "Git": <FaGitAlt />,
   "Jira": <FaJira />
 };
 
@@ -32,7 +46,7 @@ const Skills = () => {
             <SkillList>
               {items.map((skill, index) => (
                 <SkillItem key={index}>
-                  <IconWrapper>{iconMap[skill.name]}</IconWrapper>
+                  <IconWrapper>{iconMap[skill.name] || <FaCode />}</IconWrapper>
                   <SkillName>{skill.name}</SkillName>
                   {skill.level && <Tooltip>{skill.level}</Tooltip>}
                 </SkillItem>

@@ -38,9 +38,7 @@ const ProjectModal = ({ project, onClose }) => {
                         <MetaItem><FaCalendarAlt />{project.period}</MetaItem>
                         <MetaItem><FaUsers />{project.teamSize}</MetaItem>
                         <MetaItem $highlight><FaUserTie />{project.myRole}</MetaItem>
-                        {project.contribution && (
-                            <MetaItem><FaLayerGroup />{project.contribution}</MetaItem>
-                        )}
+
                     </MetaRow>
 
                     {/* 프로젝트 설명 */}
@@ -106,17 +104,7 @@ const ProjectModal = ({ project, onClose }) => {
                         </SectionBlock>
                     )}
 
-                    {/* 배운 점 */}
-                    {project.lessons && (
-                        <SectionBlock>
-                            <SectionLabel><FaLightbulb style={{ marginRight: '0.4rem', color: '#f0c040' }} />배운 점</SectionLabel>
-                            <LessonList>
-                                {project.lessons.map((l, i) => (
-                                    <LessonItem key={i}>{l}</LessonItem>
-                                ))}
-                            </LessonList>
-                        </SectionBlock>
-                    )}
+
 
                     {/* 링크 */}
                     {(project.github || project.demo) && (
@@ -134,10 +122,7 @@ const ProjectModal = ({ project, onClose }) => {
                         </LinkRow>
                     )}
 
-                    {/* 전체 태그 */}
-                    <TagRow>
-                        {project.tags.map((t, i) => <Tag key={i}>{t}</Tag>)}
-                    </TagRow>
+
                 </ModalBody>
             </Modal>
         </Overlay>
@@ -269,7 +254,7 @@ const MetaItem = styled.span`
     font-size: 0.78rem;
     padding: 0.22rem 0.6rem;
     border-radius: 4px;
-    font-family: ${({ theme }) => theme.fonts.mono};
+    font-family: ${({ theme }) => theme.fonts.main};
 `;
 
 const SectionBlock = styled.div`

@@ -3,8 +3,17 @@ export const awards = [
         id: 1,
         title: "SSAFY 14기 공통 프로젝트 우수상",
         date: "2026.02",
-        organization: "삼성 청년 SW 아카데미 (SSAFY)",
+        organization: "삼성 청년 SW·AI 아카데미(SSAFY)",
         description: "CONY — 기프티콘 통합 관리 서비스",
+        link: "",
+        isAward: true
+    },
+    {
+        id: 4,
+        title: "SSAFY 14기 1학기 성적 우수상",
+        date: "2025.12",
+        organization: "삼성 청년 SW·AI 아카데미(SSAFY)",
+        description: "학업 성취 우수(1등상)",
         link: "",
         isAward: true
     },

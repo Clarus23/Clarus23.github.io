@@ -61,7 +61,7 @@ const Skills = () => {
 
 const Section = styled.section`
   padding: 40px 0;
-  max-width: 1000px;
+  max-width: 1150px;
   margin: 0 auto;
 `;
 

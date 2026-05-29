@@ -83,7 +83,7 @@ const Timeline = () => {
 
 const Section = styled.section`
   padding: 40px 0;
-  max-width: 900px;
+  max-width: 1150px;
   margin: 0 auto;
 `;
 

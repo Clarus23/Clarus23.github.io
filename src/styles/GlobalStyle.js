@@ -15,8 +15,15 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.bg};
     color: ${({ theme }) => theme.colors.textPrimary};
     font-family: ${({ theme }) => theme.fonts.main};
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    word-break: keep-all;
     line-height: 1.6;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, button, input, textarea {
+    font-family: ${({ theme }) => theme.fonts.main};
   }
 
   a {

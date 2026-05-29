@@ -27,44 +27,45 @@ const About = () => {
                 {/* 왼쪽: 사진 + Personal Info */}
                 <LeftColumn>
                     <ProfilePhoto src="/profile.jpg" alt="정혜원 프로필 사진" />
-                    <SubTitle>Personal Info</SubTitle>
-                    <Grid>
-                        {infoList.map((info, index) => (
-                            <InfoCard key={index} onClick={() => info.isCopyable && copyToClipboard(info.value)} isCopyable={info.isCopyable}>
-                                <IconWrapper>{info.icon}</IconWrapper>
-                                <InfoContext>
-                                    <Label>{info.label}</Label>
-                                    <Value>{info.value}</Value>
-                                </InfoContext>
-                            </InfoCard>
-                        ))}
-                    </Grid>
+                    <BottomWrapper>
+                        <SubTitle>Personal Info</SubTitle>
+                        <Grid>
+                            {infoList.map((info, index) => (
+                                <InfoCard key={index} onClick={() => info.isCopyable && copyToClipboard(info.value)} isCopyable={info.isCopyable}>
+                                    <IconWrapper>{info.icon}</IconWrapper>
+                                    <InfoContext>
+                                        <Label>{info.label}</Label>
+                                        <Value>{info.value}</Value>
+                                    </InfoContext>
+                                </InfoCard>
+                            ))}
+                        </Grid>
+                    </BottomWrapper>
                 </LeftColumn>
 
                 {/* 오른쪽: Bio + Education */}
                 <RightColumn>
                     <Bio>
-                        <p>
-                            <b>"장애 없는 서비스를 만들기 위해, 실패 경로까지 설계하는 백엔드 개발자 정혜원입니다."</b><br /><br />
-                            백엔드 시스템의 진정한 가치는 '사용자가 체감하지 못하는 안정성'에 있다고 믿습니다. 그렇기에 단순히 기능이 동작하는 해피 경로(Happy Path)에 만족하지 않고, 외부 시스템 장애나 트랜잭션 롤백과 같은 예측 불가능한 실패 상황에서도 비즈니스 로직이 멈추지 않도록 방어적으로 설계합니다.<br /><br />
-                            이런 철학을 바탕으로, 실시간 채팅의 동기화 일관성 확보부터 Redis 고가용성(HA) 인프라 구축, 그리고 시스템 메트릭 모니터링 환경 구성까지 시스템 전반의 단단함을 다져왔습니다.<br /><br />
-                            또한, 개인이 잘 짜는 코드를 넘어 팀 전체가 무너지지 않는 구조를 고민합니다. 상태 모델에 기반한 안전한 권한 정책을 설계하고 초기 컨벤션을 단단하게 주도하여, 팀원 모두가 비즈니스 로직에만 집중할 수 있는 환경을 만드는 것을 즐깁니다.
-                        </p>
+                        <HighlightText>장애 없는 서비스를 만들기 위해, 실패 경로까지 설계하는 백엔드 개발자 정혜원입니다.</HighlightText>
+                        <p>백엔드 시스템의 진정한 가치는 '사용자가 체감하지 못하는 안정성'에 있다고 믿습니다. 그렇기에 단순히 기능이 동작하는 해피 경로(Happy Path)에 만족하지 않고, 외부 시스템 장애나 트랜잭션 롤백과 같은 예측 불가능한 실패 상황에서도 비즈니스 로직이 멈추지 않도록 방어적으로 설계합니다.</p>
+                        <p>이런 철학을 바탕으로, 실시간 채팅의 동기화 일관성 확보부터 Redis 고가용성(HA) 인프라 구축, 그리고 시스템 메트릭 모니터링 환경 구성까지 시스템 전반의 단단함을 다져왔습니다.</p>
                     </Bio>
 
-                    <SubTitle>Education</SubTitle>
-                    <EducationList>
-                        {education.map((edu) => (
-                            <EducationItem key={edu.id}>
-                                <EduHeader>
-                                    <EduSchool>{edu.school}</EduSchool>
-                                    <EduPeriod>{edu.period}</EduPeriod>
-                                </EduHeader>
-                                <EduMajor>{edu.major}</EduMajor>
-                                <EduDesc>{edu.description}</EduDesc>
-                            </EducationItem>
-                        ))}
-                    </EducationList>
+                    <BottomWrapper>
+                        <SubTitle>Education</SubTitle>
+                        <EducationList>
+                            {education.map((edu) => (
+                                <EducationItem key={edu.id}>
+                                    <EduHeader>
+                                        <EduSchool>{edu.school}</EduSchool>
+                                        <EduPeriod>{edu.period}</EduPeriod>
+                                    </EduHeader>
+                                    <EduMajor>{edu.major}</EduMajor>
+                                    <EduDesc>{edu.description}</EduDesc>
+                                </EducationItem>
+                            ))}
+                        </EducationList>
+                    </BottomWrapper>
                 </RightColumn>
             </TwoColumn>
         </Section>
@@ -73,7 +74,7 @@ const About = () => {
 
 const Section = styled.section`
   padding: 40px 0;
-  max-width: 1000px;
+  max-width: 1150px;
   margin: 0 auto;
 `;
 
@@ -87,8 +88,8 @@ const SectionTitle = styled.h2`
 const TwoColumn = styled.div`
   display: grid;
   grid-template-columns: 280px 1fr;
-  gap: 3rem;
-  align-items: start;
+  gap: 2.5rem;
+  align-items: stretch;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
@@ -100,12 +101,21 @@ const LeftColumn = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1.8rem;
+  height: 100%;
 `;
 
 const RightColumn = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  height: 100%;
+`;
+
+const BottomWrapper = styled.div`
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 const ProfilePhoto = styled.img`
@@ -174,20 +184,35 @@ const Value = styled.div`
 
 const Bio = styled.div`
   color: ${({ theme }) => theme.colors.textSecondary};
-  line-height: 1.8;
+  line-height: 1.6;
   font-size: 1.05rem;
+  
+  p {
+    margin-bottom: 0.8rem;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const HighlightText = styled.p`
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.primary};
+  margin-bottom: 1.2rem !important;
+  line-height: 1.5;
 `;
 
 /* Education Styles */
 const EducationList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.2rem;
 `;
 
 const EducationItem = styled.div`
   background: ${({ theme }) => theme.colors.bgLight};
-  padding: 1.5rem;
+  padding: 1.2rem 1.5rem;
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors.border || '#eee'};
   transition: transform 0.2s;

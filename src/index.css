@@ -1,14 +1,11 @@
-@font-face {
-  font-family: 'Pretendard';
-  src: url('./assets/fonts/Pretendard-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Pretendard', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);

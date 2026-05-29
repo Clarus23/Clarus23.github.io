@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>정혜원 - 포트폴리오</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+  
+  :root {
+    --primary: #0056b3;
+    --text-main: #212529;
+    --text-sub: #495057;
+    --border: #dee2e6;
+    --bg-light: #f8f9fa;
+  }
+  
+  body {
+    font-family: 'Pretendard', system-ui, sans-serif;
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  .page {
+    width: 277mm; 
+    height: 190mm;
+    page-break-after: always;
+    position: relative;
+    box-sizing: border-box;
+    padding: 6mm;
+    overflow: hidden;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+  }
+
+  h1, h2, h3, h4, h5, p { margin: 0; padding: 0; }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+  }
+
+  /* Page 1: Info */
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 20px;
+    height: 100%;
+  }
+
+  .profile-col { display: flex; flex-direction: column; gap: 12px; }
+  .profile-img {
+    width: 190px; height: 240px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border);
+  }
+  .info-item { font-size: 13px; margin-bottom: 4px; }
+  .info-label { font-weight: 600; color: var(--text-sub); width: 60px; display: inline-block; }
+
+  .content-col { display: flex; flex-direction: column; gap: 15px; }
+  .bio-text { font-size: 13px; line-height: 1.5; color: var(--text-main); }
+  
+  .list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .list-item { margin-bottom: 10px; }
+  .list-title { font-weight: 700; font-size: 14px; }
+  .list-sub { font-size: 12px; color: var(--text-sub); margin-top: 2px;}
+
+  /* Project Headers */
+  .proj-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16px; border-bottom: 2px solid var(--border); padding-bottom: 12px; }
+  .proj-title { font-size: 26px; font-weight: 800; color: var(--primary); }
+  .proj-subtitle { font-size: 16px; color: var(--text-sub); font-weight: 600; margin-top: 4px; }
+  .proj-meta { font-size: 12px; color: var(--text-sub); text-align: right; line-height: 1.5; }
+  .proj-role { color: var(--primary); font-weight: 700; font-size: 14px; }
+
+  /* Tags */
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .proj-tag { font-size: 11px; background: var(--bg-light); border: 1px solid var(--border); padding: 4px 12px; border-radius: 20px; color: var(--text-sub); font-weight: 500; }
+
+  /* 2-Column Text Layouts */
+  .layout-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 28px; }
+  
+  .box-title { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 10px; margin-top: 10px; display: flex; align-items: center; gap: 8px; }
+  .box-title::before { content: ''; display: inline-block; width: 4px; height: 16px; background: var(--primary); border-radius: 2px; }
+  
+  .proj-desc-text { font-size: 13px; line-height: 1.6; margin-bottom: 20px; color: var(--text-main); }
+  
+  /* Bullet Lists */
+  .bullet-list { padding-left: 20px; margin: 0; font-size: 13px; line-height: 1.5; }
+  .bullet-list li { margin-bottom: 8px; }
+  
+  .outcomes-list li { margin-bottom: 14px; background: var(--bg-light); padding: 12px 16px; border-radius: 8px; border-left: 4px solid var(--primary); list-style: none; margin-left: -20px; }
+  .outcomes-list li strong { display: block; font-size: 14px; color: var(--primary); margin-bottom: 4px; }
+  
+  .tech-list li { margin-bottom: 6px; }
+  .tech-list strong { display: inline-block; width: 100px; color: var(--text-sub); }
+
+  .problem-box { border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 18px; background: white; }
+  .problem-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; color: #111827; }
+  .problem-context { font-size: 13px; color: #b91c1c; margin-bottom: 6px; background: #fef2f2; padding: 4px 8px; border-radius: 4px; display: inline-block; }
+  .problem-impl { font-size: 12px; padding-left: 18px; margin: 0 0 6px 0; color: var(--text-sub); line-height: 1.5; }
+  .problem-impl li { margin-bottom: 4px; }
+  .problem-result { color: var(--primary); font-size: 13px; font-weight: 600; display: flex; gap: 6px; margin-top: 6px; border-top: 1px dashed var(--border); padding-top: 8px; }
+  .problem-result::before { content: '✓'; }
+</style>
+</head>
+<body>
+
+  <!-- Page 1: Profile -->
+  <div class="page">
+    <div class="grid-2col">
+      <div class="profile-col">
+        <div class="section-title">Profile</div>
+        <img src="../public/profile.jpg" alt="Profile" class="profile-img" onerror="this.style.display='none'" />
+        <div>
+          <div class="info-item"><span class="info-label">이름</span> 정혜원</div>
+          <div class="info-item"><span class="info-label">생년월일</span> 1999.03.23</div>
+          <div class="info-item"><span class="info-label">이메일</span> dnjs3023@gmail.com</div>
+          <div class="info-item"><span class="info-label">연락처</span> 010-4372-3023</div>
+          <div class="info-item"><span class="info-label">주소</span> 광주광역시 광산구</div>
+        </div>
+      </div>
+      <div class="content-col">
+        <div class="section-title">About Me</div>
+        <div class="bio-text">
+<p style="font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 1.2rem; line-height: 1.5;">장애 없는 서비스를 만들기 위해, 실패 경로까지 설계하는 백엔드 개발자 정혜원입니다.</p>
+<p style="margin-bottom: 8px;">백엔드 시스템의 진정한 가치는 '사용자가 체감하지 못하는 안정성'에 있다고 믿습니다. 그렇기에 단순히 기능이 동작하는 해피 경로(Happy Path)에 만족하지 않고, 외부 시스템 장애나 트랜잭션 롤백과 같은 예측 불가능한 실패 상황에서도 비즈니스 로직이 멈추지 않도록 방어적으로 설계합니다.</p>
+<p style="margin-bottom: 8px;">이런 철학을 바탕으로, 실시간 채팅의 동기화 일관성 확보부터 Redis 고가용성(HA) 인프라 구축, 그리고 시스템 메트릭 모니터링 환경 구성까지 시스템 전반의 단단함을 다져왔습니다.</p>
+<p>또한, 개인이 잘 짜는 코드를 넘어 팀 전체가 무너지지 않는 구조를 고민합니다. 상태 모델에 기반한 안전한 권한 정책을 설계하고 초기 컨벤션을 단단하게 주도하여, 팀원 모두가 비즈니스 로직에만 집중할 수 있는 환경을 만들기 위해 노력합니다.</p>
+</div>
+        
+        <div class="list-grid">
+          <div>
+            <div class="section-title" style="font-size: 20px; margin-top: 10px;">Education</div>
+            
+              <div class="list-item">
+                <div class="list-title">삼성 청년 SW 아카데미(SSAFY) 14기 수료</div>
+                <div class="list-sub">2025.07 - 2026.07 | Java 전공 트랙</div>
+                <div class="list-sub">알고리즘 및 웹 개발 심화 과정 이수</div>
+              </div>
+            
+              <div class="list-item">
+                <div class="list-title">전북대학교</div>
+                <div class="list-sub">2018.03 - 2025.02 | 정보컴퓨터공학</div>
+                <div class="list-sub">컴퓨터 공학 전반 학습</div>
+              </div>
+            
+              <div class="list-item">
+                <div class="list-title">창평고등학교</div>
+                <div class="list-sub">2015.03 - 2018.02 | 이과</div>
+                <div class="list-sub">고등학교 과정 이수</div>
+              </div>
+            
+          </div>
+          <div>
+            <div class="section-title" style="font-size: 20px; margin-top: 10px; margin-bottom: 10px;">Awards & Certifications</div>
+            <div style="display: flex; gap: 20px;">
+              <div style="flex: 1;">
+                <div style="font-weight: 700; color: #1f2937; margin-bottom: 8px; border-bottom: 1px solid #ddd; padding-bottom: 4px;">Awards</div>
+                
+                  <div class="list-item">
+                    <div class="list-title" style="font-size: 13px; white-space: nowrap;">SSAFY 14기 공통 프로젝트 우수상</div>
+                    <div class="list-sub">2026.02 | 삼성 청년 SW 아카데미 (SSAFY)</div>
+                    <div class="list-sub">CONY — 기프티콘 통합 관리 서비스</div>
+                  </div>
+                
+                  <div class="list-item">
+                    <div class="list-title" style="font-size: 13px; white-space: nowrap;">1학기 성적 우수상</div>
+                    <div class="list-sub">2025.12 | 삼성 청년 SW 아카데미 (SSAFY)</div>
+                    <div class="list-sub">학업 성취 우수</div>
+                  </div>
+                
+              </div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; color: #1f2937; margin-bottom: 8px; border-bottom: 1px solid #ddd; padding-bottom: 4px;">Certifications</div>
+                
+                  <div class="list-item">
+                    <div class="list-title" style="font-size: 13px; white-space: nowrap;">정보처리기사</div>
+                    <div class="list-sub">2024 | 한국산업인력공단</div>
+                    <div class="list-sub">국가기술자격</div>
+                  </div>
+                
+                  <div class="list-item">
+                    <div class="list-title" style="font-size: 13px; white-space: nowrap;">SQLD (SQL 개발자)</div>
+                    <div class="list-sub">2025 | 한국데이터산업진흥원</div>
+                    <div class="list-sub">국가공인 민간자격</div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects (2 pages per project) -->
+  
+    <!-- Project Part 1: Overview & Tech & Details -->
+    <div class="page">
+      <div class="proj-header">
+        <div>
+          <div class="proj-title">Project 01. CONY</div>
+          <div class="proj-subtitle">기프티콘 통합 관리 서비스 <span style="font-size:14px; color:#eab308; background:#fef9c3; padding:2px 8px; border-radius:12px; margin-left:10px;">🏆 SSAFY 14기 공통 프로젝트 우수상</span></div>
+        </div>
+        <div class="proj-meta">
+          <div>2026.01 - 2026.02</div>
+          <div>6인 팀 프로젝트</div>
+          <div class="proj-role">백엔드 핵심 개발자</div>
+        </div>
+      </div>
+      
+      <div class="proj-tags">
+        <div class="proj-tag">Java 17</div><div class="proj-tag">Spring Boot</div><div class="proj-tag">JPA</div><div class="proj-tag">MySQL</div><div class="proj-tag">Redis</div><div class="proj-tag">Docker</div><div class="proj-tag">Jenkins</div><div class="proj-tag">AWS S3</div><div class="proj-tag">React Native</div><div class="proj-tag">FastAPI</div><div class="proj-tag">Firebase FCM</div><div class="proj-tag">KakaoPay</div>
+      </div>
+      
+      <div class="layout-grid">
+        <div>
+          <img src="../src/assets/images/cony-thumbnail.png" alt="CONY" style="width: 100%; height: auto; max-height: 220px; object-fit: contain; border-radius: 8px; margin-bottom: 24px; border: 1px solid var(--border);" />
+          <div class="box-title" style="margin-top: 5px;">Project Overview</div>
+          <div class="proj-desc-text">OCR 자동 등록, Geofence 기반 위치 알림, 거래/결제, AI 개인화 추천까지 제공하는 모바일 중심 기프티콘 통합 관리 서비스입니다. 사용자 보유 기프티콘을 체계적으로 관리하고, 근처 매장 도착 시 사용 가능한 쿠폰을 즉시 안내합니다.</div>
+        </div>
+        
+        <div>
+          <div class="box-title" style="margin-top: 0;">Key Implementation Details</div>
+          <ul class="bullet-list" style="margin-bottom: 24px;">
+            <li>Redis GEO + Spring Batch 기반 매장 캐시 구조 설계 및 위치 기반 탐색 파이프라인 구현</li><li>Greedy Clustering 알고리즘으로 Android OS 지오펜스 100개 제약 극복</li><li>FCM 푸시 알림 + 스케줄러 기반 만료 임박 알림 자동화 (매일 오전 10시)</li><li>거리/유효기간 기반 일반 추천 + 사용자 로그 기반 AI 개인화 추천 연동</li><li>MSA 서버 간 X-Internal-Key 인터셉터 인증 경계 도입으로 보안 강화</li><li>payment ↔ manage 내부 API 상태 동기화로 기프티콘 소유권 이전 정합성 확보</li>
+          </ul>
+          
+          <div class="box-title">Tech Stack</div>
+          <ul class="bullet-list tech-list">
+            <li><strong>CLIENT</strong> React Native (TypeScript), Next.js</li><li><strong>BACKEND</strong> Java 17, Spring Boot, Spring Security, JPA, Spring Batch</li><li><strong>AI</strong> Python, FastAPI (OCR / 추천)</li><li><strong>INFRA</strong> MySQL, Redis GEO, AWS S3, Docker Compose, Jenkins, Prometheus, Grafana</li><li><strong>EXTERNAL</strong> Google/Kakao OAuth, KakaoPay, Firebase Cloud Messaging</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Part 2: Impact & Problem Solving -->
+    <div class="page">
+      <div class="proj-header" style="margin-bottom: 16px;">
+        <div class="proj-title">CONY <span style="font-size:18px; font-weight:600; color:var(--text-sub);">— Impacts & Problem Solving</span></div>
+      </div>
+
+      <div class="layout-grid">
+        <!-- Left: Outcomes -->
+        <div>
+          <div class="box-title">Project Outcomes (핵심 성과)</div>
+          <ul class="bullet-list outcomes-list">
+            <li><strong>위치 기반 처리 한계 극복</strong> Greedy Clustering과 Redis GEO를 활용해 Android의 지오펜스 100개 제약을 우회하고, 탐색 응답성을 확보했습니다.</li><li><strong>마이크로서비스 정합성 보장</strong> X-Internal-Key 인증과 상태 동기화 API를 설계하여, 소유권 이전 시 발생할 수 있는 데이터 불일치를 차단했습니다.</li><li><strong>운영 리스크 방어 설계</strong> 외부 연동(FCM, OCR) 실패 시에도 핵심 로직이 중단되지 않도록 Best-effort 히스토리 보존 전략을 도입했습니다.</li>
+          </ul>
+        </div>
+
+        <!-- Right: Problem Solving -->
+        <div>
+          <div class="box-title">Problem Solving (트러블슈팅)</div>
+          <div>
+            
+              <div class="problem-box">
+                <div class="problem-title">Geofence 성능 최적화 및 위치 알림 구현</div>
+                <div class="problem-context">문제: 위치 기반 조회를 DB 중심으로 처리 시 응답 지연과 부하 위험 발생</div>
+                <ul class="problem-impl">
+                  <li>Redis GEO + Hash + Pipeline으로 주변 매장 조회 구조 설계 및 Batch 워밍업</li><li>Android 지오펜스 100개 제한 극복을 위해 Greedy Clustering으로 근접 매장 묶음 처리</li>
+                </ul>
+                <div class="problem-result">위치 기능 응답성 개선 및 운영 안정성 확보</div>
+              </div>
+            
+              <div class="problem-box">
+                <div class="problem-title">FCM 알림 시스템 운영 안정화</div>
+                <div class="problem-context">문제: 푸시 전송 실패 시 추적이 어렵고, 대량 알림 발송 시 부하 우려</div>
+                <ul class="problem-impl">
+                  <li>Geofence 진입 / 만료 임박 / 자동판매 알림 공통 발송 구조 구성</li><li>FCM 전송 실패 시 알림 히스토리 저장 (Best-effort 전략)</li><li>만료 임박 알림 스케줄러(매일 오전 10시) 구현</li>
+                </ul>
+                <div class="problem-result">장애 상황에서도 이벤트 이력 추적 가능, 운영 대응성 향상</div>
+              </div>
+            
+              <div class="problem-box">
+                <div class="problem-title">MSA 간 정합성 및 내부 API 보안 강화</div>
+                <div class="problem-context">문제: 판매/구매 이벤트 시 payment ↔ manage 서버 간 상태 불일치 위험</div>
+                <ul class="problem-impl">
+                  <li>판매 시작/취소/구매 완료 시 상태 및 소유권 동기화 내부 API 구현</li><li>X-Internal-Key 기반 인터셉터로 내부 API 인증 경계 추가</li>
+                </ul>
+                <div class="problem-result">도메인 정합성과 서비스 간 호출 신뢰성 100% 보장</div>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project Part 1: Overview & Tech & Details -->
+    <div class="page">
+      <div class="proj-header">
+        <div>
+          <div class="proj-title">Project 02. ANVI</div>
+          <div class="proj-subtitle">온디바이스 AI 기반 비대면 시험 감독 솔루션 </div>
+        </div>
+        <div class="proj-meta">
+          <div>2026.04 - 2026.05</div>
+          <div>6인 팀 (SSAFY 14기 기업연계 — Edint)</div>
+          <div class="proj-role">백엔드 개발자 / 인프라 · CI·CD · 모니터링</div>
+        </div>
+      </div>
+      
+      <div class="proj-tags">
+        <div class="proj-tag">Java 17</div><div class="proj-tag">Spring Boot 3</div><div class="proj-tag">PostgreSQL 16</div><div class="proj-tag">Redis Sentinel</div><div class="proj-tag">SSE</div><div class="proj-tag">Pub/Sub</div><div class="proj-tag">JWT</div><div class="proj-tag">Docker Compose</div><div class="proj-tag">GitLab CI/CD</div><div class="proj-tag">Prometheus</div><div class="proj-tag">Grafana</div>
+      </div>
+      
+      <div class="layout-grid">
+        <div>
+          <img src="../src/assets/images/Anvi_thumbnail.png" alt="ANVI" style="width: 100%; height: auto; max-height: 220px; object-fit: contain; border-radius: 8px; margin-bottom: 24px; border: 1px solid var(--border);" />
+          <div class="box-title" style="margin-top: 5px;">Project Overview</div>
+          <div class="proj-desc-text">CES 2024 발표 기업 Edint와 협업한 차세대 비대면 시험 감독 PoC 프로젝트입니다. 응시자의 Android 디바이스에서 YOLO + Gemma 4 VLM을 직접 추론(On-Device AI)해 부정행위를 실시간 감지하고, 비식별 처리된 이미지만 서버로 전송하여 개인정보 보호와 서버 비용 절감을 달성했습니다.</div>
+        </div>
+        
+        <div>
+          <div class="box-title" style="margin-top: 0;">Key Implementation Details</div>
+          <ul class="bullet-list" style="margin-bottom: 24px;">
+            <li>Heartbeat 만료 감지를 Redis TTL + Keyspace Notification으로 구현 (지연 평균 15초 → 1초 미만)</li><li>SSE + Redis Pub/Sub 8채널로 실시간 양방향 채널 및 Fault Isolation 달성</li><li>Redis Sentinel 3노드(쿼럼 2) HA로 메시지 브로커 단일 장애점 제거 및 자동 Failover 검증</li><li>GitLab CI/CD를 통한 단일 서비스 단위 무중단 배포 파이프라인 구축</li>
+          </ul>
+          
+          <div class="box-title">Tech Stack</div>
+          <ul class="bullet-list tech-list">
+            <li><strong>BACKEND</strong> Java 17, Spring Boot 3.x, Spring Security 6</li><li><strong>REALTIME</strong> Spring MVC SSE(SseEmitter), Redis Pub/Sub</li><li><strong>INFRA</strong> Docker Compose, GitLab CI/CD, Redis Sentinel, EC2</li><li><strong>MONITORING</strong> Prometheus, Grafana, Micrometer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Part 2: Impact & Problem Solving -->
+    <div class="page">
+      <div class="proj-header" style="margin-bottom: 16px;">
+        <div class="proj-title">ANVI <span style="font-size:18px; font-weight:600; color:var(--text-sub);">— Impacts & Problem Solving</span></div>
+      </div>
+
+      <div class="layout-grid">
+        <!-- Left: Outcomes -->
+        <div>
+          <div class="box-title">Project Outcomes (핵심 성과)</div>
+          <ul class="bullet-list outcomes-list">
+            <li><strong>초저지연 감지 아키텍처 달성</strong> Redis TTL + Keyspace Notification을 도입하여 동시 접속자 수에 무관하게 감지 지연 시간을 1초 미만으로 단축했습니다.</li><li><strong>단일 장애점(SPOF) 제거</strong> Redis Sentinel HA를 구성하고 Failover를 검증하여, 실시간 이벤트 브로커의 고가용성을 확보했습니다.</li><li><strong>운영 가시성 확보</strong> Prometheus와 Grafana를 도입하여 실시간 트래픽 및 시스템 메트릭을 정량적으로 모니터링할 수 있는 체계를 마련했습니다.</li>
+          </ul>
+        </div>
+
+        <!-- Right: Problem Solving -->
+        <div>
+          <div class="box-title">Problem Solving (트러블슈팅)</div>
+          <div>
+            
+              <div class="problem-box">
+                <div class="problem-title">Heartbeat 만료 감지 최적화</div>
+                <div class="problem-context">문제: DB 폴링으로 동시 접속자의 연결 만료를 추적하면 DB 부하 및 지연 시간(15초) 증가</div>
+                <ul class="problem-impl">
+                  <li>Heartbeat 수신 시 Redis Key(TTL 60초) 업데이트 방식으로 전환</li><li>Redis Keyspace Notification(__keyevent@0__:expired) 이벤트를 스프링에서 구독</li><li>만료 이벤트 발생 시 즉각적으로 연결 끊김 이벤트를 발송</li>
+                </ul>
+                <div class="problem-result">감지 지연 시간 평균 15초 → 1초 미만 단축, DB 부하 O(0) 달성</div>
+              </div>
+            
+              <div class="problem-box">
+                <div class="problem-title">SSE + Redis Pub/Sub 실시간 양방향 채널</div>
+                <div class="problem-context">문제: 모바일 환경의 잦은 네트워크 단절 시 이벤트 손실 위험 및 App-Web 강결합 문제</div>
+                <ul class="problem-impl">
+                  <li>App/Web 양쪽에 단방향 SSE 두 개로 논리적 양방향 효과 달성</li><li>SseEmitterRegistry를 통한 Thread-safe 한 커넥션 관리</li><li>25초 주기 Keep-alive ping 및 재연결 시 상태 복원 로직 구현</li>
+                </ul>
+                <div class="problem-result">App ↔ Web 결합도 제거, 단속적 연결 환경에서도 이벤트 손실 0 보장</div>
+              </div>
+            
+              <div class="problem-box">
+                <div class="problem-title">인프라 HA 구성 및 CI/CD</div>
+                <div class="problem-context">문제: 단일 Redis 노드 장애 시 실시간 파이프라인 전체 마비 위험</div>
+                <ul class="problem-impl">
+                  <li>Redis Sentinel 3노드(Quorum 2) 구성으로 자동 Failover 설정</li><li>변경 경로(BE/FE) 단위의 GitLab CI/CD 무중단 파이프라인 구성</li><li>Prometheus + Grafana를 연동하여 Heartbeat 메트릭 시각화 대시보드 구축</li>
+                </ul>
+                <div class="problem-result">SPOF 제거로 고가용성 확보 및 데이터 기반 운영 모니터링 체계 확립</div>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project Part 1: Overview & Tech & Details -->
+    <div class="page">
+      <div class="proj-header">
+        <div>
+          <div class="proj-title">Project 03. 알맹이</div>
+          <div class="proj-subtitle">소상공인 인사·노무 올인원 플랫폼 </div>
+        </div>
+        <div class="proj-meta">
+          <div>2026.02 - 2026.04</div>
+          <div>6인 팀 프로젝트</div>
+          <div class="proj-role">Team Leader / 백엔드 핵심 개발자</div>
+        </div>
+      </div>
+      
+      <div class="proj-tags">
+        <div class="proj-tag">Java 17</div><div class="proj-tag">Spring Boot</div><div class="proj-tag">JPA</div><div class="proj-tag">PostgreSQL</div><div class="proj-tag">Redis</div><div class="proj-tag">WebSocket(STOMP)</div><div class="proj-tag">FastAPI</div><div class="proj-tag">LangChain</div><div class="proj-tag">Qdrant</div><div class="proj-tag">Docker</div><div class="proj-tag">Jenkins</div><div class="proj-tag">React</div><div class="proj-tag">TypeScript</div><div class="proj-tag">Firebase FCM</div>
+      </div>
+      
+      <div class="layout-grid">
+        <div>
+          <img src="../src/assets/images/almaengi-thumbnail.png" alt="알맹이" style="width: 100%; height: auto; max-height: 220px; object-fit: contain; border-radius: 8px; margin-bottom: 24px; border: 1px solid var(--border);" />
+          <div class="box-title" style="margin-top: 5px;">Project Overview</div>
+          <div class="proj-desc-text">소상공인·자영업자의 근로계약, 출결, 급여 정산, 사내 채팅, 노동법 AI 질의를 하나의 서비스로 통합한 올인원 플랫폼입니다. 전자 근로계약 서명부터 급여명세서 자동 발급, 실시간 경매(대타) 시스템까지 실제 업무 흐름을 끊김 없이 연결합니다.</div>
+        </div>
+        
+        <div>
+          <div class="box-title" style="margin-top: 0;">Key Implementation Details</div>
+          <ul class="bullet-list" style="margin-bottom: 24px;">
+            <li>STOMP + Redis Pub/Sub 기반 실시간 채팅 fan-out 구조 구현 (DM/GROUP/BOT)</li><li>경매(대타) 도메인: 등록/입찰/낙찰/인사이트 리포트 + WebSocket 실시간 동기화</li><li>afterCommit 기반 이벤트 발행으로 트랜잭션 롤백 시 잘못된 이벤트 선노출 방지</li><li>FCM E2E 고도화: data-only 메시지 + 중복 등록 방지 + 크로스탭 락/쿨다운</li><li>직원 상태(WAITING→WORKING) 기반 권한 정책 도메인 전반 반영</li>
+          </ul>
+          
+          <div class="box-title">Tech Stack</div>
+          <ul class="bullet-list tech-list">
+            <li><strong>FRONTEND</strong> React, TypeScript, Vite, React Query, Zustand, Tailwind CSS, PWA</li><li><strong>BACKEND</strong> Java 17, Spring Boot, Spring Security, JPA, JWT, Redis, STOMP(WebSocket)</li><li><strong>AI</strong> FastAPI, LangChain, Qdrant (RAG 기반 질의응답)</li><li><strong>INFRA</strong> Docker Compose, Nginx, Jenkins</li><li><strong>DB</strong> PostgreSQL</li><li><strong>EXTERNAL</strong> Firebase Cloud Messaging</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Part 2: Impact & Problem Solving -->
+    <div class="page">
+      <div class="proj-header" style="margin-bottom: 16px;">
+        <div class="proj-title">알맹이 <span style="font-size:18px; font-weight:600; color:var(--text-sub);">— Impacts & Problem Solving</span></div>
+      </div>
+
+      <div class="layout-grid">
+        <!-- Left: Outcomes -->
+        <div>
+          <div class="box-title">Project Outcomes (핵심 성과)</div>
+          <ul class="bullet-list outcomes-list">
+            <li><strong>실시간 동기화 병목 해결</strong> STOMP와 Redis Pub/Sub을 활용한 Fan-out 구조를 도입하여, 그룹 채팅 및 대타 경매의 실시간 알림 지연을 최소화했습니다.</li><li><strong>동시성 및 중복 발생 제어</strong> 인메모리 락(Lock)과 쿨다운 전략을 도입하여 크로스탭 환경에서의 FCM 중복 등록 이슈를 완전히 해결했습니다.</li><li><strong>견고한 상태 모델 기반 아키텍처</strong> 직원의 '상태 전이 모델'을 구축하고 전 도메인 권한 정책에 일관되게 적용하여 코드 안전성을 높였습니다.</li>
+          </ul>
+        </div>
+
+        <!-- Right: Problem Solving -->
+        <div>
+          <div class="box-title">Problem Solving (트러블슈팅)</div>
+          <div>
+            
+              <div class="problem-box">
+                <div class="problem-title">실시간 채팅 + 챗봇 통합 구조</div>
+                <div class="problem-context">문제: 실시간 채팅과 챗봇 응답을 같은 흐름에서 지연 없이 안정적으로 처리해야 함</div>
+                <ul class="problem-impl">
+                  <li>DM/GROUP/BOT 채팅방 구조 및 읽음 포인터 로직 구현</li><li>STOMP + Redis Pub/Sub로 멀티 인스턴스 환경에서 Fan-out 지원</li><li>챗봇 호출을 비동기로 처리하고 실패 시 Fallback 메시지 제공</li>
+                </ul>
+                <div class="problem-result">채팅 지연 체감 감소 및 챗봇 장애 시에도 끊김 없는 대화 유지</div>
+              </div>
+            
+              <div class="problem-box">
+                <div class="problem-title">FCM 알림 E2E 안정화</div>
+                <div class="problem-context">문제: 멀티탭 환경에서 FCM 토큰 중복 등록 및 동일한 알림 중복 수신 문제 발생</div>
+                <ul class="problem-impl">
+                  <li>토큰 동기화에 In-flight Lock, Cross-tab Lock, Cooldown 전략 적용</li><li>Data-only 메시지 기반으로 단일 표시 전략 적용하여 중복 렌더링 방지</li><li>Push 실패는 Best-effort로 처리하여 핵심 비즈니스 로직(결제/가입 등) 보호</li>
+                </ul>
+                <div class="problem-result">크로스탭 중복 알림을 원천 차단하여 사용자 피로도 감소</div>
+              </div>
+            
+              <div class="problem-box">
+                <div class="problem-title">상태 기반 권한 정책 설계</div>
+                <div class="problem-context">문제: 승인 전 직원(WAITING)의 API 오남용 가능성 및 권한 분기 누락 리스크</div>
+                <ul class="problem-impl">
+                  <li>직원 상태 전이 모델링 (WAITING → INVITED → WORKING → RESIGNED)</li><li>출결/채팅/경매 등 모든 도메인에서 상태 조건 일관 검증 로직 반영</li><li>@AuthUser 커스텀 어노테이션으로 인증 객체 주입 패턴 표준화</li>
+                </ul>
+                <div class="problem-result">전 도메인의 권한 분기 일관성 확보 및 보안 누수 방지</div>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+</body>
+</html>

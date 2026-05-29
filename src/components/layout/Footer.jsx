@@ -9,11 +9,7 @@ const Footer = () => {
 
   return (
     <StyledFooter>
-      <SocialLinks>
-        <SocialIcon href="https://github.com/Clarus23" target="_blank" rel="noopener noreferrer"><FaGithub /></SocialIcon>
-        <SocialIcon href="mailto:dnjs3023@gmail.com"><FaEnvelope /></SocialIcon>
 
-      </SocialLinks>
       <Copyright>
         &copy; {new Date().getFullYear()} Hyewon Jung. All rights reserved.
       </Copyright>

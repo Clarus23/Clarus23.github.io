@@ -6,8 +6,6 @@ import Skills from './sections/Skills';
 import Awards from './sections/Awards';
 import Projects from './sections/Projects';
 import Timeline from './sections/Timeline';
-import Contact from './sections/Contact';
-
 function App() {
   return (
     <Layout>
@@ -17,7 +15,6 @@ function App() {
       <Awards />
       <Projects />
       <Timeline />
-      <Contact />
     </Layout>
   );
 }

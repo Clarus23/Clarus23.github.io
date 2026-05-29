@@ -35,7 +35,19 @@ const Projects = () => {
             {/* 하단: 내용 */}
             <Content>
               <Header>
-                <ProjectTitle>{project.title}</ProjectTitle>
+                <TitleRow>
+                  <ProjectTitle>{project.title}</ProjectTitle>
+                  {project.github && (
+                    <GithubIconLink
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <FaGithub size={18} /> GitHub
+                    </GithubIconLink>
+                  )}
+                </TitleRow>
                 {project.subtitle && <Subtitle>{project.subtitle}</Subtitle>}
               </Header>
 
@@ -73,16 +85,7 @@ const Projects = () => {
                   ))}
                 </TechStack>
                 <LinksRow>
-                  {project.github && (
-                    <LinkButton
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <FaGithub /> GitHub
-                    </LinkButton>
-                  )}
+
                   {project.demo && (
                     <LinkButton
                       href={project.demo}
@@ -116,7 +119,7 @@ const Projects = () => {
 
 const Section = styled.section`
   padding: 40px 0;
-  max-width: 900px;
+  max-width: 1150px;
   margin: 0 auto;
 `;
 
@@ -237,6 +240,28 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+`;
+
+const TitleRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const GithubIconLink = styled.a`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.textPrimary};
+    transform: scale(1.05);
+  }
 `;
 
 const ProjectTitle = styled.h3`

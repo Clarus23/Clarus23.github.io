@@ -4,31 +4,62 @@ import { awards } from '../data/awards';
 import { FaAward, FaTrophy } from 'react-icons/fa';
 
 const Awards = () => {
+  const awardsList = awards.filter(item => item.isAward);
+  const certsList = awards.filter(item => !item.isAward);
+
   return (
     <Section id="awards">
       <SectionTitle>Awards & Certifications</SectionTitle>
-      <Grid>
-        {awards.map((item) => (
-          <Card key={item.id} $isAward={item.isAward}>
-            <IconWrapper $isAward={item.isAward}>
-              {item.isAward ? <FaTrophy /> : <FaAward />}
-            </IconWrapper>
-            <Content>
-              <Date>{item.date}</Date>
-              <Title $isAward={item.isAward}>{item.title}</Title>
-              <Organization>{item.organization}</Organization>
-              <Description>{item.description}</Description>
-            </Content>
-          </Card>
-        ))}
-      </Grid>
+      
+      <TwoColumn>
+        {/* Awards Column */}
+        <Column>
+          <ColumnTitle>Awards</ColumnTitle>
+          <CardList>
+            {awardsList.map((item) => (
+              <Card key={item.id} $isAward={true}>
+                <IconWrapper $isAward={true}>
+                  <FaTrophy />
+                </IconWrapper>
+                <Content>
+                  <Date>{item.date}</Date>
+                  <Title $isAward={true}>{item.title}</Title>
+                  <Organization>{item.organization}</Organization>
+                  <Description>{item.description}</Description>
+                </Content>
+              </Card>
+            ))}
+          </CardList>
+        </Column>
+
+        {/* Certifications Column */}
+        <Column>
+          <ColumnTitle>Certifications</ColumnTitle>
+          <CardList>
+            {certsList.map((item) => (
+              <Card key={item.id} $isAward={false}>
+                <IconWrapper $isAward={false}>
+                  <FaAward />
+                </IconWrapper>
+                <Content>
+                  <Date>{item.date}</Date>
+                  <Title $isAward={false}>{item.title}</Title>
+                  <Organization>{item.organization}</Organization>
+                  <Description>{item.description}</Description>
+                </Content>
+              </Card>
+            ))}
+          </CardList>
+        </Column>
+      </TwoColumn>
+
     </Section>
   );
 };
 
 const Section = styled.section`
   padding: 40px 0;
-  max-width: 1000px;
+  max-width: 1150px;
   margin: 0 auto;
 `;
 
@@ -39,63 +70,91 @@ const SectionTitle = styled.h2`
   text-align: center;
 `;
 
-const Grid = styled.div`
+const TwoColumn = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile || '768px'}) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+const ColumnTitle = styled.h3`
+  font-size: 1.5rem;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  border-left: 4px solid ${({ theme }) => theme.colors.primary};
+  padding-left: 1rem;
+`;
+
+const CardList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 `;
 
 const Card = styled.div`
   background: ${({ theme }) => theme.colors.backgroundAlt};
-  padding: 2rem;
+  padding: 1.8rem;
   border-radius: 8px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  gap: 1.5rem;
   transition: transform 0.2s, box-shadow 0.2s;
   border: 1px solid ${({ theme }) => theme.colors.border || 'transparent'};
-  border-top: ${({ $isAward }) => $isAward ? '3px solid #c9a227' : '3px solid #4a90d9'};
+  border-left: ${({ $isAward }) => $isAward ? '4px solid #c9a227' : '4px solid #4a90d9'};
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
 `;
 
 const IconWrapper = styled.div`
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: ${({ $isAward, theme }) => $isAward ? '#c9a227' : theme.colors.primary};
-  margin-bottom: 1.5rem;
+  flex-shrink: 0;
 `;
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 `;
 
 const Date = styled.div`
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: ${({ theme }) => theme.colors.textSecondary};
   font-family: ${({ theme }) => theme.fonts.mono};
 `;
 
-const Title = styled.h3`
-  font-size: 1.25rem;
+const Title = styled.h4`
+  font-size: 1.15rem; /* Adjusted for one line */
   color: ${({ theme }) => theme.colors.textPrimary};
   font-weight: 700;
+  margin: 0;
+  word-break: keep-all;
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Organization = styled.div`
   font-weight: 600;
+  font-size: 0.95rem;
   color: ${({ theme }) => theme.colors.secondary};
 `;
 
 const Description = styled.p`
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: ${({ theme }) => theme.colors.textSecondary};
-  margin-top: 0.5rem;
+  margin: 0;
 `;
 
 export default Awards;

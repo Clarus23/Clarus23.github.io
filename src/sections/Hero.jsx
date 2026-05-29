@@ -48,7 +48,7 @@ const Section = styled.section`
 `;
 
 const Content = styled.div`
-  max-width: 1000px;
+  max-width: 1150px;
 `;
 
 const Intro = styled.p`

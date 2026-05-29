@@ -1,6 +1,17 @@
 // 시간 내림차순 (최신 → 과거) 정렬
 export const timeline = [
     {
+        id: 4,
+        title: "삼성 청년 SW·AI 아카데미(SSAFY) 14기 수료",
+        type: "Education",
+        role: "Trainee",
+        period: "2025.07 ~ 2026.07",
+        description: [
+            "Java 전공 트랙",
+            "알고리즘 및 웹/모바일 개발 집중 교육"
+        ]
+    },
+    {
         id: 8,
         title: "ANVI",
         type: "Project",
@@ -48,17 +59,6 @@ export const timeline = [
         ]
     },
     {
-        id: 4,
-        title: "삼성 청년 SW 아카데미 (SSAFY) 14기",
-        type: "Education",
-        role: "Trainee",
-        period: "2025.07 ~ Present",
-        description: [
-            "Java 전공 트랙",
-            "알고리즘 및 웹/모바일 개발 집중 교육"
-        ]
-    },
-    {
         id: 6,
         title: "SQLD 취득",
         type: "Certificate",
@@ -75,7 +75,7 @@ export const timeline = [
         role: "Bachelor",
         period: "2025.02",
         description: [
-            "정보컴퓨터공학 전공",
+            "컴퓨터공학 전공",
             "공학인증 심화과정 이수"
         ]
     },

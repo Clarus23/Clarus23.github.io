@@ -13,8 +13,8 @@ export const projects = [
         myRole: "백엔드 핵심 개발자",
         description: "OCR 자동 등록, Geofence 기반 위치 알림, 거래/결제, AI 개인화 추천까지 제공하는 모바일 중심 기프티콘 통합 관리 서비스입니다. 사용자 보유 기프티콘을 체계적으로 관리하고, 근처 매장 도착 시 사용 가능한 쿠폰을 즉시 안내합니다.",
         thumbnail: conyThumbnail,
-        tags: ["Java 17", "Spring Boot", "JPA", "MySQL", "Redis", "Docker", "Jenkins", "AWS S3", "React Native", "FastAPI", "Firebase FCM", "KakaoPay"],
-        github: "",
+        tags: ["Java 17", "Spring Boot 3", "Spring Security 6", "Spring Cloud Gateway", "Eureka", "JPA", "MySQL 8.0", "Redis", "Kafka", "Docker", "Jenkins", "Nginx", "React", "Zustand", "PWA"],
+        github: "https://github.com/Clarus23/CONY",
         demo: "",
         details: [
             "Redis GEO + Spring Batch 기반 매장 캐시 구조 설계 및 위치 기반 탐색 파이프라인 구현",
@@ -98,90 +98,6 @@ export const projects = [
     },
     {
         id: 2,
-        title: "알맹이",
-        subtitle: "소상공인 인사·노무 올인원 플랫폼",
-        period: "2026.02 - 2026.04",
-        teamSize: "6인 팀 프로젝트",
-        myRole: "Team Leader / 백엔드 핵심 개발자",
-        description: "소상공인·자영업자의 근로계약, 출결, 급여 정산, 사내 채팅, 노동법 AI 질의를 하나의 서비스로 통합한 올인원 플랫폼입니다. 전자 근로계약 서명부터 급여명세서 자동 발급, 실시간 경매(대타) 시스템까지 실제 업무 흐름을 끊김 없이 연결합니다.",
-        thumbnail: almaengiThumbnail,
-        tags: ["Java 17", "Spring Boot", "JPA", "PostgreSQL", "Redis", "WebSocket(STOMP)", "FastAPI", "LangChain", "Qdrant", "Docker", "Jenkins", "React", "TypeScript", "Firebase FCM"],
-        github: "",
-        demo: "",
-        details: [
-            "STOMP + Redis Pub/Sub 기반 실시간 채팅 fan-out 구조 구현 (DM/GROUP/BOT)",
-            "경매(대타) 도메인: 등록/입찰/낙찰/인사이트 리포트 + WebSocket 실시간 동기화",
-            "afterCommit 기반 이벤트 발행으로 트랜잭션 롤백 시 잘못된 이벤트 선노출 방지",
-            "FCM E2E 고도화: data-only 메시지 + 중복 등록 방지 + 크로스탭 락/쿨다운",
-            "직원 상태(WAITING→WORKING) 기반 권한 정책 도메인 전반 반영"
-        ],
-        tech: {
-            frontend: "React, TypeScript, Vite, React Query, Zustand, Tailwind CSS, PWA",
-            backend: "Java 17, Spring Boot, Spring Security, JPA, JWT, Redis, STOMP(WebSocket)",
-            ai: "FastAPI, LangChain, Qdrant (RAG 기반 질의응답)",
-            infra: "Docker Compose, Nginx, Jenkins",
-            db: "PostgreSQL",
-            external: "Firebase Cloud Messaging"
-        },
-
-        modalSections: [
-            {
-                title: "실시간 경매(대타) 동기화",
-                problem: "경매 상태 변경(등록/수정/마감)이 사용자 화면에 즉시 반영되지 않음",
-                implementations: [
-                    "백엔드에서 경매 이벤트 발행 채널 구성 및 관리",
-                    "트랜잭션 커밋 이후(afterCommit) 이벤트 발행으로 롤백 데이터 선노출 방지",
-                    "프론트에서 WebSocket 구독 후 React Query 캐시 무효화로 화면 즉시 갱신",
-                    "경매 인사이트 리포트(성공률/평균 낙찰가/타임라인) 구현"
-                ],
-                result: "새로고침 없이 실시간 동기화되는 사용자 경험 제공"
-            },
-            {
-                title: "실시간 채팅 + 챗봇 통합 구조",
-                problem: "실시간 채팅과 챗봇 응답을 같은 흐름에서 안정적으로 처리해야 함",
-                implementations: [
-                    "DM/GROUP/BOT 채팅방 구조 및 읽음 포인터 로직 구현",
-                    "STOMP + Redis Pub/Sub로 멀티 인스턴스 fan-out 지원",
-                    "챗봇 호출을 비동기로 처리하고 실패 시 fallback 메시지 제공",
-                    "매장 생성/직원 승인 시 BOT 방 자동 생성 및 웰컴 메시지 처리"
-                ],
-                result: "채팅 지연 체감 감소 및 챗봇 장애 시에도 대화 흐름 유지"
-            },
-            {
-                title: "FCM 알림 E2E 안정화",
-                problem: "멀티탭/브라우저 환경에서 토큰 중복 등록 및 중복 알림 발생",
-                implementations: [
-                    "토큰 동기화에 in-flight lock, cross-tab lock, cooldown 적용",
-                    "SW/foreground 처리 경계를 명확히 분리하여 중복 표시 방지",
-                    "data-only 메시지 기반으로 단일 표시 전략 적용",
-                    "push 실패는 best-effort로 처리하여 핵심 비즈니스 흐름 보호"
-                ],
-                result: "알림 신뢰도 향상 및 운영 중 장애 전파 최소화"
-            },
-            {
-                title: "상태 기반 권한 정책 설계",
-                problem: "승인 전 직원(WAITING/INVITED)의 기능 오남용 가능성",
-                implementations: [
-                    "직원 상태 전이 모델링 (WAITING → INVITED → WORKING → RESIGNED)",
-                    "출결/채팅/경매/계약 등 모든 도메인에서 상태 조건 일관 검증",
-                    "@AuthUser 기반 인증 사용자 주입 패턴으로 하드코딩 제거"
-                ],
-                result: "도메인별 권한 분기 일관성 확보 및 정책 누락 리스크 감소"
-            }
-        ],
-        outcomes: [
-            "실시간 동기화 병목 해결: STOMP와 Redis Pub/Sub을 활용한 Fan-out 구조를 도입하여, 그룹 채팅 및 대타 경매의 실시간 알림 지연을 최소화했습니다.",
-            "동시성 및 중복 발생 제어: 인메모리 락(Lock)과 쿨다운(Cooldown) 전략을 도입하여 크로스탭 환경에서의 FCM 중복 등록 및 중복 알림 이슈를 완전히 해결했습니다.",
-            "견고한 상태 모델 기반 아키텍처: 단순한 분기문(if-else)이 아닌 직원의 '상태 전이 모델'을 구축하고 전 도메인 권한 정책에 일관되게 적용하여, 팀 전원의 개발 속도와 코드 안전성을 높였습니다."
-        ],
-        lessons: [
-            "실시간 시스템에서는 '빠른 전파'보다 트랜잭션 경계와 정합성 보장이 우선임을 체득",
-            "장애가 발생하더라도 서비스 핵심 흐름을 유지하는 best-effort 설계의 중요성 학습",
-            "권한 정책은 기능별 조건문이 아니라 상태 모델 중심으로 설계해야 유지보수가 쉬움"
-        ]
-    },
-    {
-        id: 3,
         title: "ANVI",
         subtitle: "온디바이스 AI 기반 비대면 시험 감독 솔루션",
         period: "2026.04 - 2026.05",
@@ -190,7 +106,7 @@ export const projects = [
         description: "CES 2024 발표 기업 Edint와 협업한 차세대 비대면 시험 감독 PoC 프로젝트입니다. 응시자의 Android 디바이스에서 YOLO + Gemma 4 VLM을 직접 추론(On-Device AI)해 부정행위를 실시간 감지하고, 서버에는 메타데이터와 비식별 처리된 이미지만 전송합니다. 이로써 기존 서버 중심 솔루션의 4대 문제(개인정보 침해 · 네트워크 의존 · 서버 비용 · 감지 지연)를 동시에 해결한 Privacy by Design 아키텍처를 구현했습니다.",
         thumbnail: anviThumbnail,
         tags: ["Java 17", "Spring Boot 3", "Spring Security 6", "JPA", "PostgreSQL 16", "Redis 7", "Redis Sentinel", "SSE", "Pub/Sub", "JWT", "Docker Compose", "Nginx", "GitLab CI/CD", "Prometheus", "Grafana", "AWS S3"],
-        github: "",
+        github: "https://github.com/Clarus23/ANVI",
         demo: "",
         details: [
             "App(:8090) / Web(:9090) 2서버 분리 + 단일 DB + Redis Pub/Sub 비동기 결합 구조의 BE 골격 설계·구축",
@@ -313,6 +229,90 @@ export const projects = [
             "Redis의 강력한 기능 다수는 기본값으로 꺼져 있다 — 운영 의존 기능은 활성화가 명시적·재현 가능하게 보장되는지 점검 필수",
             "분산 비동기 디버깅은 '타이밍 → 스레드 → 시스템 모델' 단서를 단계적으로 좁히는 사고법으로 접근",
             "컨벤션 문서를 첫 주에 단단히 작성한 결정이 6주 내내 협업 속도를 결정했다"
+        ]
+    },
+    {
+        id: 3,
+        title: "알맹이",
+        subtitle: "소상공인 인사·노무 올인원 플랫폼",
+        period: "2026.02 - 2026.04",
+        teamSize: "6인 팀 프로젝트",
+        myRole: "Team Leader / 백엔드 핵심 개발자",
+        description: "소상공인·자영업자의 근로계약, 출결, 급여 정산, 사내 채팅, 노동법 AI 질의를 하나의 서비스로 통합한 올인원 플랫폼입니다. 전자 근로계약 서명부터 급여명세서 자동 발급, 실시간 경매(대타) 시스템까지 실제 업무 흐름을 끊김 없이 연결합니다.",
+        thumbnail: almaengiThumbnail,
+        tags: ["Java 17", "Spring Boot", "JPA", "PostgreSQL", "Redis", "WebSocket(STOMP)", "FastAPI", "LangChain", "Qdrant", "Docker", "Jenkins", "React", "TypeScript", "Firebase FCM"],
+        github: "https://github.com/Clarus23/Almaengi",
+        demo: "",
+        details: [
+            "STOMP + Redis Pub/Sub 기반 실시간 채팅 fan-out 구조 구현 (DM/GROUP/BOT)",
+            "경매(대타) 도메인: 등록/입찰/낙찰/인사이트 리포트 + WebSocket 실시간 동기화",
+            "afterCommit 기반 이벤트 발행으로 트랜잭션 롤백 시 잘못된 이벤트 선노출 방지",
+            "FCM E2E 고도화: data-only 메시지 + 중복 등록 방지 + 크로스탭 락/쿨다운",
+            "직원 상태(WAITING→WORKING) 기반 권한 정책 도메인 전반 반영"
+        ],
+        tech: {
+            frontend: "React, TypeScript, Vite, React Query, Zustand, Tailwind CSS, PWA",
+            backend: "Java 17, Spring Boot, Spring Security, JPA, JWT, Redis, STOMP(WebSocket)",
+            ai: "FastAPI, LangChain, Qdrant (RAG 기반 질의응답)",
+            infra: "Docker Compose, Nginx, Jenkins",
+            db: "PostgreSQL",
+            external: "Firebase Cloud Messaging"
+        },
+
+        modalSections: [
+            {
+                title: "실시간 경매(대타) 동기화",
+                problem: "경매 상태 변경(등록/수정/마감)이 사용자 화면에 즉시 반영되지 않음",
+                implementations: [
+                    "백엔드에서 경매 이벤트 발행 채널 구성 및 관리",
+                    "트랜잭션 커밋 이후(afterCommit) 이벤트 발행으로 롤백 데이터 선노출 방지",
+                    "프론트에서 WebSocket 구독 후 React Query 캐시 무효화로 화면 즉시 갱신",
+                    "경매 인사이트 리포트(성공률/평균 낙찰가/타임라인) 구현"
+                ],
+                result: "새로고침 없이 실시간 동기화되는 사용자 경험 제공"
+            },
+            {
+                title: "실시간 채팅 + 챗봇 통합 구조",
+                problem: "실시간 채팅과 챗봇 응답을 같은 흐름에서 안정적으로 처리해야 함",
+                implementations: [
+                    "DM/GROUP/BOT 채팅방 구조 및 읽음 포인터 로직 구현",
+                    "STOMP + Redis Pub/Sub로 멀티 인스턴스 fan-out 지원",
+                    "챗봇 호출을 비동기로 처리하고 실패 시 fallback 메시지 제공",
+                    "매장 생성/직원 승인 시 BOT 방 자동 생성 및 웰컴 메시지 처리"
+                ],
+                result: "채팅 지연 체감 감소 및 챗봇 장애 시에도 대화 흐름 유지"
+            },
+            {
+                title: "FCM 알림 E2E 안정화",
+                problem: "멀티탭/브라우저 환경에서 토큰 중복 등록 및 중복 알림 발생",
+                implementations: [
+                    "토큰 동기화에 in-flight lock, cross-tab lock, cooldown 적용",
+                    "SW/foreground 처리 경계를 명확히 분리하여 중복 표시 방지",
+                    "data-only 메시지 기반으로 단일 표시 전략 적용",
+                    "push 실패는 best-effort로 처리하여 핵심 비즈니스 흐름 보호"
+                ],
+                result: "알림 신뢰도 향상 및 운영 중 장애 전파 최소화"
+            },
+            {
+                title: "상태 기반 권한 정책 설계",
+                problem: "승인 전 직원(WAITING/INVITED)의 기능 오남용 가능성",
+                implementations: [
+                    "직원 상태 전이 모델링 (WAITING → INVITED → WORKING → RESIGNED)",
+                    "출결/채팅/경매/계약 등 모든 도메인에서 상태 조건 일관 검증",
+                    "@AuthUser 기반 인증 사용자 주입 패턴으로 하드코딩 제거"
+                ],
+                result: "도메인별 권한 분기 일관성 확보 및 정책 누락 리스크 감소"
+            }
+        ],
+        outcomes: [
+            "실시간 동기화 병목 해결: STOMP와 Redis Pub/Sub을 활용한 Fan-out 구조를 도입하여, 그룹 채팅 및 대타 경매의 실시간 알림 지연을 최소화했습니다.",
+            "동시성 및 중복 발생 제어: 인메모리 락(Lock)과 쿨다운(Cooldown) 전략을 도입하여 크로스탭 환경에서의 FCM 중복 등록 및 중복 알림 이슈를 완전히 해결했습니다.",
+            "견고한 상태 모델 기반 아키텍처: 단순한 분기문(if-else)이 아닌 직원의 '상태 전이 모델'을 구축하고 전 도메인 권한 정책에 일관되게 적용하여, 팀 전원의 개발 속도와 코드 안전성을 높였습니다."
+        ],
+        lessons: [
+            "실시간 시스템에서는 '빠른 전파'보다 트랜잭션 경계와 정합성 보장이 우선임을 체득",
+            "장애가 발생하더라도 서비스 핵심 흐름을 유지하는 best-effort 설계의 중요성 학습",
+            "권한 정책은 기능별 조건문이 아니라 상태 모델 중심으로 설계해야 유지보수가 쉬움"
         ]
     }
 ];

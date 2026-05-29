@@ -64,7 +64,7 @@ const Logo = styled.a`
   font-size: 1.5rem;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.secondary};
-  font-family: ${({ theme }) => theme.fonts.mono};
+  font-family: ${({ theme }) => theme.fonts.main};
 `;
 
 const Hamburger = styled.div`
@@ -107,7 +107,7 @@ const NavLink = styled.a`
   color: ${({ theme }) => theme.colors.textPrimary};
   font-size: 1rem;
   font-weight: 500;
-  font-family: ${({ theme }) => theme.fonts.mono};
+  font-family: ${({ theme }) => theme.fonts.main};
 
   &:hover {
     color: ${({ theme }) => theme.colors.secondary};

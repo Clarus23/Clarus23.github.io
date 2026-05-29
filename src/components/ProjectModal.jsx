@@ -27,7 +27,9 @@ const ProjectModal = ({ project, onClose }) => {
                     {project.thumbnail && <BannerImg src={project.thumbnail} alt={project.title} />}
                     <BannerGradient />
                     <BannerText>
-                        <ModalTitle>{project.title}</ModalTitle>
+                        <TitleRow>
+                            <ModalTitle>{project.title}</ModalTitle>
+                        </TitleRow>
                         <ModalSubtitle>{project.subtitle}</ModalSubtitle>
                     </BannerText>
                 </ModalBanner>
@@ -45,6 +47,22 @@ const ProjectModal = ({ project, onClose }) => {
                     <SectionBlock>
                         <p style={{ lineHeight: '1.75', color: 'inherit' }}>{project.description}</p>
                     </SectionBlock>
+
+                    {/* 링크 */}
+                    {(project.github || project.demo) && (
+                        <LinkRow style={{ marginTop: '-0.5rem', marginBottom: '0.5rem' }}>
+                            {project.github && (
+                                <LinkBtn href={project.github} target="_blank" rel="noopener noreferrer">
+                                    <FaGithub /> GitHub
+                                </LinkBtn>
+                            )}
+                            {project.demo && (
+                                <LinkBtn href={project.demo} target="_blank" rel="noopener noreferrer" $primary>
+                                    <FaExternalLinkAlt /> Live Demo
+                                </LinkBtn>
+                            )}
+                        </LinkRow>
+                    )}
 
                     {/* 기술 스택 */}
                     {project.tech && (
@@ -64,31 +82,37 @@ const ProjectModal = ({ project, onClose }) => {
                     <Divider />
 
                     {/* 상세 구현 섹션 */}
-                    {project.modalSections && project.modalSections.map((sec, i) => (
-                        <SectionBlock key={i}>
-                            <SectionLabel>
-                                <SectionNum>{String(i + 1).padStart(2, '0')}</SectionNum>
-                                {sec.title}
-                            </SectionLabel>
+                    {project.modalSections && project.modalSections.length > 0 && (
+                        <SectionBlock>
+                            <SectionLabel>상세 구현 내용</SectionLabel>
+                            <SectionsWrapper>
+                                {project.modalSections.map((sec, i) => (
+                                <SectionBlock key={i}>
+                                    <SectionLabel>
+                                        <SectionNum>{String(i + 1).padStart(2, '0')}</SectionNum>
+                                        {sec.title}
+                                    </SectionLabel>
 
-                            <ProblemBox>
-                                <ProblemLabel>문제 상황</ProblemLabel>
-                                <p>{sec.problem}</p>
-                            </ProblemBox>
+                                    <ProblemBox>
+                                        <ProblemLabel>문제 상황</ProblemLabel>
+                                        <p>{sec.problem}</p>
+                                    </ProblemBox>
 
-                            <ImplList>
-                                <ImplLabel>구현 내용</ImplLabel>
-                                {sec.implementations.map((impl, j) => (
-                                    <ImplItem key={j}>{impl}</ImplItem>
-                                ))}
-                            </ImplList>
+                                    <ImplList>
+                                        <ImplLabel>구현 내용</ImplLabel>
+                                        {sec.implementations.map((impl, j) => (
+                                            <ImplItem key={j}>{impl}</ImplItem>
+                                        ))}
+                                    </ImplList>
 
-                            <ResultBox>
-                                <FaCheckCircle style={{ flexShrink: 0 }} />
-                                <span>{sec.result}</span>
-                            </ResultBox>
+                                    <ResultBox>
+                                        <span>{sec.result}</span>
+                                    </ResultBox>
+                                </SectionBlock>
+                            ))}
+                            </SectionsWrapper>
                         </SectionBlock>
-                    ))}
+                    )}
 
                     <Divider />
 
@@ -106,21 +130,7 @@ const ProjectModal = ({ project, onClose }) => {
 
 
 
-                    {/* 링크 */}
-                    {(project.github || project.demo) && (
-                        <LinkRow>
-                            {project.github && (
-                                <LinkBtn href={project.github} target="_blank" rel="noopener noreferrer">
-                                    <FaGithub /> GitHub
-                                </LinkBtn>
-                            )}
-                            {project.demo && (
-                                <LinkBtn href={project.demo} target="_blank" rel="noopener noreferrer" $primary>
-                                    <FaExternalLinkAlt /> Live Demo
-                                </LinkBtn>
-                            )}
-                        </LinkRow>
-                    )}
+
 
 
                 </ModalBody>
@@ -150,7 +160,7 @@ const Overlay = styled.div`
 const Modal = styled.div`
     background: ${({ theme }) => theme.colors.bgLight};
     border-radius: 16px;
-    max-width: 780px;
+    max-width: 850px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
@@ -212,10 +222,33 @@ const BannerText = styled.div`
     position: absolute;
     bottom: 1.2rem;
     left: 2rem;
+    right: 2rem;
+`;
+
+const TitleRow = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+
+const GithubIconLink = styled.a`
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+        color: white;
+        transform: scale(1.05);
+    }
 `;
 
 const ModalTitle = styled.h2`
-    color: ${({ theme }) => theme.colors.textPrimary};
+    color: ${({ theme }) => theme.colors.textPrimary || 'white'};
     font-size: 2rem;
     margin: 0;
     text-shadow: 0 2px 8px rgba(0,0,0,0.6);
@@ -232,7 +265,7 @@ const ModalBody = styled.div`
     padding: 1.5rem 2rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 2.2rem;
     color: ${({ theme }) => theme.colors.textSecondary};
     font-size: 0.92rem;
     line-height: 1.7;
@@ -242,6 +275,12 @@ const MetaRow = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+`;
+
+const SectionsWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 `;
 
 const MetaItem = styled.span`
@@ -260,7 +299,7 @@ const MetaItem = styled.span`
 const SectionBlock = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 1rem;
 `;
 
 const SectionLabel = styled.h4`
@@ -314,76 +353,98 @@ const Divider = styled.hr`
 
 const ProblemBox = styled.div`
     background: ${({ theme }) => theme.colors.bg};
-    border-left: 3px solid ${({ theme }) => theme.colors.secondary}88;
-    border-radius: 0 6px 6px 0;
-    padding: 0.7rem 1rem;
-    font-size: 0.88rem;
+    border: 1px solid ${({ theme }) => theme.colors.border || 'rgba(0,0,0,0.05)'};
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 
-    p { margin: 0.25rem 0 0; }
+    p { margin: 0.4rem 0 0; line-height: 1.6; }
 `;
 
 const ProblemLabel = styled.span`
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     color: ${({ theme }) => theme.colors.secondary};
     font-family: ${({ theme }) => theme.fonts.mono};
-    font-size: 0.75rem;
-    font-weight: bold;
-    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
 `;
 
 const ImplList = styled.ul`
     list-style: none;
-    padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.6rem;
+    background: ${({ theme }) => theme.colors.bg};
+    border: 1px solid ${({ theme }) => theme.colors.secondary}22;
+    border-radius: 8px;
+    padding: 1.2rem;
 `;
 
 const ImplLabel = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     color: ${({ theme }) => theme.colors.textPrimary};
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 0.2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 `;
 
 const ImplItem = styled.li`
-    padding-left: 1.2em;
+    padding-left: 1.4em;
     position: relative;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
 
     &::before {
-        content: '▸';
+        content: '•';
         position: absolute;
         left: 0;
         color: ${({ theme }) => theme.colors.secondary};
+        font-weight: bold;
     }
 `;
 
 const ResultBox = styled.div`
     display: flex;
     align-items: flex-start;
-    gap: 0.5rem;
-    color: ${({ theme }) => theme.colors.secondary};
-    font-size: 0.88rem;
+    gap: 0.6rem;
+    background: ${({ theme }) => theme.colors.secondary}11;
+    border-left: 4px solid ${({ theme }) => theme.colors.secondary};
+    padding: 1rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    color: ${({ theme }) => theme.colors.textPrimary};
+    font-size: 0.95rem;
     font-weight: 500;
+    line-height: 1.6;
 `;
 
 const OutcomeList = styled.ul`
     list-style: none;
-    padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.8rem;
+    background: ${({ theme }) => theme.colors.secondary}0a; /* very light tint */
+    border: 1px solid ${({ theme }) => theme.colors.secondary}33;
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
 `;
 
 const OutcomeItem = styled.li`
-    padding-left: 1.2em;
+    padding-left: 1.5em;
     position: relative;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: ${({ theme }) => theme.colors.textPrimary};
 
     &::before {
-        content: '✓';
+        content: '•';
         position: absolute;
         left: 0;
         color: ${({ theme }) => theme.colors.secondary};
@@ -406,10 +467,11 @@ const LessonItem = styled.li`
     font-size: 0.88rem;
 
     &::before {
-        content: '→';
+        content: '•';
         position: absolute;
         left: 0;
         color: ${({ theme }) => theme.colors.secondary};
+        font-weight: bold;
     }
 `;
 
